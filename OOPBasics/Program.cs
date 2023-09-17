@@ -10,8 +10,7 @@ var internationalPizzaDay24 = internationalPizzaDay23.AddYears(1);
 var rectangle1 = new Rectangle(5, 10);
 var rectangle2 = new Rectangle(50, 100);
 
-Console.WriteLine(
-    "Count of Rectangle objects is " + Rectangle.CountOfInstances);
+Console.WriteLine("Count of Rectangle objects is " + Rectangle.CountOfInstances);
 
 Console.WriteLine("Width is " + rectangle1.Width);
 Console.WriteLine("Height is " + rectangle1.GetHeight());
@@ -35,14 +34,17 @@ Console.WriteLine("Elapsed time in ms: " + stopwatch.ElapsedMilliseconds);
 
 Console.ReadKey();
 
-static class Calculator
+//static class se ne moze instancirati
+//static class sadrze samo static methods
+static class Calculator //stateless(has no fields)
 {
     public static int Add(int a, int b) => a + b;
     public static int Subtract(int a, int b) => a - b;
     public static int Multiply(int a, int b) => a * b;
 }
 
-class Rectangle
+//non static class mogu da sadrze non static methods
+class Rectangle //stateful(has state - fields)
 {
     //const fields are implicitly static
     public const int NumberOfSides = 4;
@@ -51,7 +53,7 @@ class Rectangle
     public static int CountOfInstances { get; private set; }
 
     //a static field
-    private static DateTime _firstUsed;
+    private static DateTime _firstUsed /*= DateTime.Now*/;
 
     //a static constructor
     static Rectangle()
@@ -99,15 +101,15 @@ class Rectangle
     public int CalculateArea() => Width * _height;
 
     //a get-only, expression-bodied property
-    public string Description => $"A rectangle with width {Width} " +
-        $"and height {_height}";
+    public string Description => $"A rectangle with width {Width} " + $"and height {_height}";
 
     //a static method, not using any state of an instance
-    public static string DescribeGenerally() =>
-        $"A plane figure with four straight sides and four right angles.";
+    public static string DescribeGenerally() => $"A plane figure with four straight sides and four right angles.";
 
     //can be made static
     public string NotUsingAnyState() => "abc";
+
+    public const int NumbersOfSides = 4; // all const fields are implicitly static
 }
 
 
