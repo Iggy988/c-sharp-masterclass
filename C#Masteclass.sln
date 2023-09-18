@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C#Fundamentals", "C#Fundamentals\C#Fundamentals.csproj", "{A9122291-55DF-4E88-A537-73E66EAF1C64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C#Fundamentals", "C#Fundamentals\C#Fundamentals.csproj", "{A9122291-55DF-4E88-A537-73E66EAF1C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{F9B5282A-C878-4947-BA92-89B7179CAD91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Calculator.csproj", "{F9B5282A-C878-4947-BA92-89B7179CAD91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList", "TodoList\TodoList.csproj", "{97BAB90E-6CBD-4AFD-92BD-48A395807D51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList", "TodoList\TodoList.csproj", "{97BAB90E-6CBD-4AFD-92BD-48A395807D51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fundamentals", "Fundamentals", "{DAF6E406-246C-4E48-9DEE-C1103EB01644}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOP", "OOP", "{7CAE5A9B-DBA5-46B4-B619-7F432482DD13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPBasics", "OOPBasics\OOPBasics.csproj", "{3AEF1E58-3103-4F04-8938-7CEBDD0FC84D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPBasics", "OOPBasics\OOPBasics.csproj", "{3AEF1E58-3103-4F04-8938-7CEBDD0FC84D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleResponsibilityPrinciple", "SingleResponsibilityPrinciple\SingleResponsibilityPrinciple.csproj", "{AF202A80-2711-4722-A64A-3C4DF10821DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingleResponsibilityPrinciple", "SingleResponsibilityPrinciple\SingleResponsibilityPrinciple.csproj", "{AF202A80-2711-4722-A64A-3C4DF10821DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceGame", "DiceGame\DiceGame.csproj", "{D0330530-140F-4243-B777-557F255793FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{AF202A80-2711-4722-A64A-3C4DF10821DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF202A80-2711-4722-A64A-3C4DF10821DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF202A80-2711-4722-A64A-3C4DF10821DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0330530-140F-4243-B777-557F255793FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0330530-140F-4243-B777-557F255793FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0330530-140F-4243-B777-557F255793FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0330530-140F-4243-B777-557F255793FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{97BAB90E-6CBD-4AFD-92BD-48A395807D51} = {DAF6E406-246C-4E48-9DEE-C1103EB01644}
 		{3AEF1E58-3103-4F04-8938-7CEBDD0FC84D} = {7CAE5A9B-DBA5-46B4-B619-7F432482DD13}
 		{AF202A80-2711-4722-A64A-3C4DF10821DB} = {7CAE5A9B-DBA5-46B4-B619-7F432482DD13}
+		{D0330530-140F-4243-B777-557F255793FA} = {7CAE5A9B-DBA5-46B4-B619-7F432482DD13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}

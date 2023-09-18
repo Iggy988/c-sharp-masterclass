@@ -1,4 +1,5 @@
 ﻿
+
 var names = new Names();
 var path = new NamesFilePathBuilder().BuildFilePath();
 var stringsTextualRepository = new StringsTextualRepository();
