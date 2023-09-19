@@ -14,3 +14,5 @@ new NumbersSumCalculator();
 int sum = calculator.Calculate(numbers);
 
 Console.WriteLine("Sum is: " + sum);
+
+Console.ReadKey();
