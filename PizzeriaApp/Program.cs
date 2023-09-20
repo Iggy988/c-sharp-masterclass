@@ -42,14 +42,22 @@
 //implicit conversion -> safe int to decimal etc. int a = 10; decimal b = a;
 //explicit conversion -> not safe, decimal to int, decimal c = 10.01m; int d = (int)c;
 //ToString()
+//upcasting => when we convert derived class to base class
+//downcast => when we convert derived class to base class
 inr secondSeasonNumber = 1;
 Season summer = (Season)secondSeasonNumber;
 Console.WriteLine(summer);
 
-var ingredients = new Ingredients(1);
+//var ingredients = new Ingredient(1);
 
-var cheddar = new Cheddar(3, 10); // poziva constructora prvo iz basse class, onda iz derivate
-Console.WriteLine(cheddar);
+//var cheddar = new Cheddar(3, 10); // poziva constructora prvo iz basse class, onda iz derivate
+
+Ingredient ingredient = new Cheddar(2,12);
+Ingredient randomIngredient = GeneratingRandomIngredient();
+// pokazivace exception dok random obj ne bude type Cheddar
+Console.WriteLine("Random ingredient is " +  randomIngredient); 
+Cheddar cheddar = (Cheddar)randomIngredient;
+
 
 Console.ReadKey();
 
@@ -59,6 +67,15 @@ public enum Season
  	Summer,
 	Autumn,
  	Winter
+}
+
+Ingredient GeneratingRandomIngredient()
+{
+	var random = new Random();
+	var number = random.Next(1, 4);
+	if(number == 1){return new Cheddar(2,13);}
+	if(number == 2){return new TomatoSauce(1);}
+	else return new Mozzarella(2)
 }
 
 public class Pizza
