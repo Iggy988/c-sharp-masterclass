@@ -39,11 +39,14 @@
 //{
 //    Console.WriteLine(ingridient.Name);
 //}
+
 //implicit conversion -> safe int to decimal etc. int a = 10; decimal b = a;
 //explicit conversion -> not safe, decimal to int, decimal c = 10.01m; int d = (int)c;
 //ToString()
 //upcasting => when we convert derived class to base class
 //downcast => when we convert derived class to base class
+//is operator - checks if some object is of a given type
+
 inr secondSeasonNumber = 1;
 Season summer = (Season)secondSeasonNumber;
 Console.WriteLine(summer);
@@ -56,7 +59,20 @@ Ingredient ingredient = new Cheddar(2,12);
 Ingredient randomIngredient = GeneratingRandomIngredient();
 // pokazivace exception dok random obj ne bude type Cheddar
 Console.WriteLine("Random ingredient is " +  randomIngredient); 
-Cheddar cheddar = (Cheddar)randomIngredient;
+/*
+Console.WriteLine("is object? " + (ingredient is object)); //true
+Console.WriteLine("is ingredient? " + (ingredient is object)); //true
+Console.WriteLine("is cheddar? " + (ingredient is Cheddar)); //true
+Console.WriteLine("is mozzarella? " + (ingredient is Mozzarella)); //false
+Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
+*/
+if (randomIngredient is Cheddar cheddar)
+{
+	//Cheddar cheddar = (Cheddar)randomIngredient;	
+	Console.WriteLine("cheddar object: " + cheddar);
+}
+
+
 
 
 Console.ReadKey();
