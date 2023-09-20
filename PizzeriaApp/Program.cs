@@ -39,7 +39,12 @@
 //{
 //    Console.WriteLine(ingridient.Name);
 //}
-		
+//implicit conversion -> safe int to decimal etc. int a = 10; decimal b = a;
+//explicit conversion -> not safe, decimal to int, decimal c = 10.01m; int d = (int)c;
+//ToString()
+inr secondSeasonNumber = 1;
+Season summer = (Season)secondSeasonNumber;
+Console.WriteLine(summer);
 
 var ingredients = new Ingredients(1);
 
@@ -47,6 +52,14 @@ var cheddar = new Cheddar(3, 10); // poziva constructora prvo iz basse class, on
 Console.WriteLine(cheddar);
 
 Console.ReadKey();
+
+public enum Season
+{
+	Spring,
+ 	Summer,
+	Autumn,
+ 	Winter
+}
 
 public class Pizza
 {
