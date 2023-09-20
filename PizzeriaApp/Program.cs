@@ -72,7 +72,17 @@ if (randomIngredient is Cheddar cheddar)
 	Console.WriteLine("cheddar object: " + cheddar);
 }
 
+var pizza = new Pizza();
+Console.WriteLine(pizza.number);
+Console.WriteLine(pizza.date);
 
+//int ne moze biti assigned null
+//mora biti implicitly typed, ne moze var, zato sto compiler ne moze da odredi type
+Ingredient nullIngredient = null;
+if(nullIngredient is not null)
+{
+	Console.WriteLine(nullIngredient.Name);
+}
 
 
 Console.ReadKey();
@@ -96,6 +106,9 @@ Ingredient GeneratingRandomIngredient()
 
 public class Pizza
 {
+	public Ingredient ingredient;
+	public int number;
+	public DateTime date;
     private List<Ingredient> _ingredients = new List<Ingredient>();
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
     public override string ToString() => $"This is a pizza with {string.Join(", ", _ingredients)}";
