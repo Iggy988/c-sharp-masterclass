@@ -54,15 +54,17 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 */
 //if (randomIngredient is Cheddar cheddar)
 
-public class TomatoSauce : Ingredient
+namespace PizzeriaApp
 {
-    public TomatoSauce(int priceIfExtraTopping) : base(priceIfExtraTopping)
+    public class TomatoSauce : Ingredient
     {
+        public TomatoSauce(int priceIfExtraTopping) : base(priceIfExtraTopping)
+        {
 
+        }
+        public string Name => "Tomato Sauce";
+        public int TomatosIn100Grams { get; }
+        // only virtual overriden methods can be sealed
+        public sealed override void Prepare() => Console.WriteLine("Cook tomatos with basil, garlic and salt. Spread on pizza.");
     }
-    public string Name => "Tomato Sauce";
-    public int TomatosIn100Grams { get; }
-    // only virtual overriden methods can be sealed
-    public sealed override void Prepare() => Console.WriteLine("Cook tomatos with basil, garlic and salt. Spread on pizza.");
 }
-

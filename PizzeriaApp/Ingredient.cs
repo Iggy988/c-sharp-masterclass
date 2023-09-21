@@ -59,30 +59,33 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 //Abstract classes cannot be instantiated. They only serve as base classes for other, more concrete types.
 //Method with virtual modiffier must have an implementation, overriding is optional
 //Method with abstract modiffier can't have an implementation, overriding is oblifatory
-public abstract class Ingredient
+
+namespace PizzeriaApp
 {
-    public Ingredient(int priceIfExtraTopping)
+    public abstract class Ingredient
     {
-        Console.WriteLine("Constructor from the Ingredient class");
-        PriceIfExtraTopping = priceIfExtraTopping;
+        public Ingredient(int priceIfExtraTopping)
+        {
+            Console.WriteLine("Constructor from the Ingredient class");
+            PriceIfExtraTopping = priceIfExtraTopping;
+        }
+
+        public int PriceIfExtraTopping { get; }
+
+        public override string ToString() => Name;
+
+        public virtual string Name { get; } = "Some ingredient";
+
+        public string PublicMethod() => "This is PUBLIC method of base class";
+        // protected can be used in dervated classes but cannot be used outside
+        protected string ProtectedMethod() => "This is PROTECTED method of base class";
+
+        private string PrivateMethod() => "This is PRIVATE method of base class";
+        //abstract methods - Implicitly virtual. Must be overriden in non-abstract derived classes
+        //nikad nece biti executed zato sto ce biti ovveriden, nema poente da ima body
+        public abstract void Prepare();
+
+        public int PublicField;
+
     }
-
-    public int PriceIfExtraTopping { get; }
-
-    public override string ToString() => Name;
-
-    public virtual string Name { get; } = "Some ingredient";
-
-    public string PublicMethod() => "This is PUBLIC method of base class";
-    // protected can be used in dervated classes but cannot be used outside
-    protected string ProtectedMethod() => "This is PROTECTED method of base class";
-
-    private string PrivateMethod() => "This is PRIVATE method of base class";
-    //abstract methods - Implicitly virtual. Must be overriden in non-abstract derived classes
-    //nikad nece biti executed zato sto ce biti ovveriden, nema poente da ima body
-    public abstract void Prepare();
-
-    public int PublicField;
-
 }
-

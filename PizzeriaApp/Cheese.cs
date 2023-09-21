@@ -54,13 +54,15 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 */
 //if (randomIngredient is Cheddar cheddar)
 
-public class Cheese : Ingredient
+namespace PizzeriaApp
 {
-    public Cheese(int priceIfExtraTopping) : base(priceIfExtraTopping)
+    public class Cheese : Ingredient
     {
-                
+        public Cheese(int priceIfExtraTopping) : base(priceIfExtraTopping)
+        {
+
+        }
+
+        public override void Prepare() => Console.WriteLine("Grate and sprinkle over pizza.");
     }
-
-    public override void Prepare() => Console.WriteLine("Grate and sprinkle over pizza.");
 }
-

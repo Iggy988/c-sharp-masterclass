@@ -55,23 +55,26 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 //if (randomIngredient is Cheddar cheddar)
 
 //we can only skip overriding the avstract method from the base class if the derived class in abstract itself.
-public class Cheddar : Ingredient
+
+namespace PizzeriaApp
 {
-
-    public Cheddar(int priceIfExtraTopping, int agedForMonths) : base(priceIfExtraTopping)
+    public class Cheddar : Ingredient
     {
-        Console.WriteLine("Constructor from the Cheddar class");
-        AgedForMonth = agedForMonths;
-    }
 
-    public override string Name => $"{base.Name}, more specifically, " + $"a Cheddar cheese aged for {AgedForMonth} months";
-    public int AgedForMonth { get; }
-    public void UseMethodsFromBaseClass()
-    {
-        Console.WriteLine(PublicMethod());
-        Console.WriteLine(ProtectedMethod());
-        //Console.WriteLine(PrivateMethod());
+        public Cheddar(int priceIfExtraTopping, int agedForMonths) : base(priceIfExtraTopping)
+        {
+            Console.WriteLine("Constructor from the Cheddar class");
+            AgedForMonth = agedForMonths;
+        }
+
+        public override string Name => $"{base.Name}, more specifically, " + $"a Cheddar cheese aged for {AgedForMonth} months";
+        public int AgedForMonth { get; }
+        public void UseMethodsFromBaseClass()
+        {
+            Console.WriteLine(PublicMethod());
+            Console.WriteLine(ProtectedMethod());
+            //Console.WriteLine(PrivateMethod());
+        }
+        public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza.");
     }
-    public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza.");
 }
-

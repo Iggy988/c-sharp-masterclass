@@ -54,6 +54,8 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 */
 //if (randomIngredient is Cheddar cheddar)
 
+using PizzeriaApp;
+
 public class SpecialTomatoSauce : TomatoSauce
 {
     public SpecialTomatoSauce(int priceIfExtraTopping) : base(priceIfExtraTopping)

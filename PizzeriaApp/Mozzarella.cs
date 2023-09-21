@@ -56,16 +56,19 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 
 // class can't be derive from sealed type classes 
 //class NewMozzarella : Mozzarella (ne moze)
-public sealed class Mozzarella : Cheese //, ItalianFoodItem - ne moze multiple inheritance
+
+namespace PizzeriaApp
 {
-    public Mozzarella(int priceIfExtraTopping) : base(priceIfExtraTopping)
+    public sealed class Mozzarella : Cheese //, ItalianFoodItem - ne moze multiple inheritance
     {
+        public Mozzarella(int priceIfExtraTopping) : base(priceIfExtraTopping)
+        {
+
+        }
+        public override string Name => "Mozarella";
+        public bool IsLight { get; }
+
+        public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza.");
 
     }
-    public override string Name => "Mozarella";
-    public bool IsLight { get; }
-
-    public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza.");
-
 }
-
