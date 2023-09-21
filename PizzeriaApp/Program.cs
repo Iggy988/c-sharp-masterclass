@@ -97,6 +97,8 @@ foreach (Ingredient ingridient in ingredients)
     ingridient.Prepare();
 }
 
+var pizza = RandomPizzaGenerator.Generate(3);
+
 Console.ReadKey();
 
 public enum Season
@@ -159,6 +161,29 @@ public abstract class Ingredient
     public int PublicField;
 
 }
+//all static classes are implicitly sealed - cannot have classee derived from them
+public static class RandomPizzaGenerator
+{
+    public static Pizza Generate(int howManyIngredients)
+    {
+        var pizza = new Pizza();
+        for (int i = 0; i < howManyIngredients; ++i)
+        {
+            var randomIngredient = GenerateRandomIngredient();
+            pizza.AddIngredient(randomIngredient);
+        }
+        return pizza;
+    }
+
+    private static Ingredient GenerateRandomIngredient()
+    {
+        var random = new Random();
+        var number = random.Next(1, 4);
+        if (number == 1) { return new Cheddar(2, 12); }
+        if (number == 2) { return new TomatoSauce(1); }
+        else return new Mozzarella(2);
+    }
+}
 
 public class Cheese : Ingredient
 {
@@ -197,8 +222,18 @@ public class TomatoSauce : Ingredient
     }
     public string Name => "Tomato Sauce";
     public int TomatosIn100Grams { get; }
+// only virtual overriden methods can be sealed
+    public sealed override void Prepare() => Console.WriteLine("Cook tomatos with basil, garlic and salt. Spread on pizza.");
+}
 
-    public override void Prepare() => Console.WriteLine("Cook tomatos with basil, garlic and salt. Spread on pizza.");
+public class SpecialTomatoSauce : TomatoSauce
+{
+    public SpecialTomatoSauce(int priceIfExtraTopping) : base(priceIfExtraTopping)
+    {
+    }
+// ne mozemo zato so je sealed
+    //public override void Prepare() =>
+    //    Console.WriteLine("Special tomato sauce");
 }
 
 public class ItalianFoodItem
@@ -206,7 +241,9 @@ public class ItalianFoodItem
 
 }
 
-public class Mozzarella : Cheese //, ItalianFoodItem - ne moze multiple inheritance
+// class can't be derive from sealed type classes 
+//class NewMozzarella : Mozzarella (ne moze)
+public sealed class Mozzarella : Cheese //, ItalianFoodItem - ne moze multiple inheritance
 {
     public Mozzarella(int priceIfExtraTopping) : base(int priceIfExtraTopping)
     {
