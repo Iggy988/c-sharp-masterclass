@@ -131,8 +131,10 @@ public class Pizza
 
 //Polymorphism - the provision of a single interface to entities of different tupes
 //Virtual - methods or properties may be overriden by the inheriting types
-
-public class Ingredient
+//Abstract classes cannot be instantiated. They only serve as base classes for other, more concrete types.
+//Method with virtual modiffier must have an implementation, overriding is optional
+//Method with abstract modiffier can't have an implementation, overriding is oblifatory
+public abstract class Ingredient
 {
     public Ingredient(int priceIfExtraTopping)
     {
@@ -140,15 +142,22 @@ public class Ingredient
         PriceIfExtraTopping = priceIfExtraTopping;
     }
     
-    public int PublicField;
-
     public int PriceIfExtraTopping {get;}
+	
     public string override ToString() => Name;
+	
     public virtual string Name { get; } = "Some ingredient";
+	
     public string PublicMethod() => "This is PUBLIC method of base class";
     // protected can be used in dervated classes but cannot be used outside
     protected string ProtectedMethod() => "This is PROTECTED method of base class";
+	
     private string PrivateMethod() => "This is PRIVATE method of base class";
+    //abstract methods - Implicitly virtual. Must be overriden in non-abstract derived classes
+    //nikad nece biti executed zato sto ce biti ovveriden, nema poente da ima body
+    public abstract void Prepare();
+
+    public int PublicField;
 
 }
 
@@ -158,9 +167,10 @@ public class Cheese : Ingredient
     {
         
     }
+     public override void Prepare() => Console.WriteLine("Grate and sprinkle over pizza.");
 }
-
-public class Cheddar : Ingredient
+//we can only skip overriding the avstract method from the base class if the derived class in abstract itself.
+public abstract class Cheddar : Ingredient
 {
 
     public Cheddar(int priceIfExtraTopping, int agedForMonths) : base(int priceIfExtraTopping)
@@ -177,6 +187,7 @@ public class Cheddar : Ingredient
         Console.WriteLine(ProtectedMethod());
         //Console.WriteLine(PrivateMethod());
     }
+     public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza.");
 }
 
 public class TomatoSauce : Ingredient
@@ -187,6 +198,8 @@ public class TomatoSauce : Ingredient
     }
     public string Name => "Tomato Sauce";
     public int TomatosIn100Grams { get; }
+
+    public override void Prepare() => Console.WriteLine("Cook tomatos with basil, garlic and salt. Spread on pizza.");
 }
 
 public class ItalianFoodItem
@@ -202,4 +215,8 @@ public class Mozzarella : Cheese //, ItalianFoodItem - ne moze multiple inherita
     }
     public override string Name => "Mozarella";
     public bool IsLight { get; }
+
+    public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza.");
+
+	
 }
