@@ -55,8 +55,9 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 //if (randomIngredient is Cheddar cheddar)
 
 using PizzeriaApp;
+using PizzeriaApp.Interfaces;
 
-public class Pizza : Bakeable
+public class Pizza : IBakeable
 {
     public Ingredient ingredient;
     public int number;
@@ -64,9 +65,9 @@ public class Pizza : Bakeable
     private List<Ingredient> _ingredients = new List<Ingredient>();
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
 
-    public override string GetInstructions()
+    public string GetInstructions()
     {
-        throw new NotImplementedException();
+        return "Bake at 250 degrees Celsious for 10 minutes";
     }
 
     public override string ToString() => $"This is a pizza with {string.Join(", ", _ingredients)}";

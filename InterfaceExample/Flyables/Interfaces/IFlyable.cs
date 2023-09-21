@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PizzeriaApp;
+namespace InterfaceExample.Flyables.Interfaces;
 
-public abstract class Bakeable
+public interface IFlyable
 {
-    public abstract string GetInstructions();
+    void Fly();
 }

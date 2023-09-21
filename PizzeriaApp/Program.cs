@@ -1,4 +1,5 @@
 ﻿using PizzeriaApp;
+using PizzeriaApp.Interfaces;
 
 //var pizza = new Pizza();
 
@@ -46,11 +47,16 @@
 //}
 
 //moraju imati isti type objecti u listi
-var bakeableDishes = new List<object>
+var bakeableDishes = new List<IBakeable>
 {
     new Pizza(),
     new Panettone()
 };
+
+foreach (var item in bakeableDishes)
+{
+    Console.WriteLine(item.GetInstructions());
+}
 
 Console.ReadKey();
 
