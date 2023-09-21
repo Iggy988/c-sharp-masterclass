@@ -28,18 +28,6 @@
 
 //Console.WriteLine(ingredient.Name);
 
-//var ingredients = new List<Ingredient>
-//{
- //  new Cheddar(),
- //   new Mozzarella(),
- //   new TomatoSauce()
-//};
-
-//foreach (Ingredient ingridient in ingredients)
-//{
-//    Console.WriteLine(ingridient.Name);
-//}
-
 //implicit conversion -> safe int to decimal etc. int a = 10; decimal b = a;
 //explicit conversion -> not safe, decimal to int, decimal c = 10.01m; int d = (int)c;
 //ToString()
@@ -96,6 +84,17 @@ if(cheddar is not null)
 else 
 {
 	Console.WriteLine("Conversion failed");
+}
+
+var ingredients = new List<Ingredient>
+{
+   new Cheddar(2,10),
+    new Mozzarella(2),
+    new TomatoSauce(1)
+};
+foreach (Ingredient ingridient in ingredients)
+{
+    ingridient.Prepare();
 }
 
 Console.ReadKey();
