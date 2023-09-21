@@ -84,6 +84,19 @@ if(nullIngredient is not null)
 	Console.WriteLine(nullIngredient.Name);
 }
 
+//as operator ne moze na int
+//Cheddar cheddar = (Cheddar)ingredient; - throw exception if falls
+var ingredient = new Ingredient(1);
+Cheddar cheddar = ingredient as Cheddar; //- result will be null if it falls
+
+if(cheddar is not null)
+{
+	Console.WriteLine(cheddar.Name);
+}
+else 
+{
+	Console.WriteLine("Conversion failed");
+}
 
 Console.ReadKey();
 
