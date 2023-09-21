@@ -99,7 +99,22 @@ foreach (Ingredient ingridient in ingredients)
 
 var pizza = RandomPizzaGenerator.Generate(3);
 
+var multilineText = @"aaa
+	sss
+	ccc
+	asadd";
+
+//Console.WriteLine("Count of lines is " + CountLines(multilineText));
+
+Console.WriteLine("Count of lines is " + multilineText.CountLines());
+Console.WriteLine("Count of lines is " + StringExtensions.CountLines(multilineText));
+
+Console.WriteLine("Next after spring is " + Season.Spring.Next());
+Console.WriteLine("Next after winter is " + Season.Winter.Next());
+
 Console.ReadKey();
+
+int CountLines(string input) => input.Split(Environment.NewLine).Length;
 
 public enum Season
 {
@@ -253,6 +268,24 @@ public sealed class Mozzarella : Cheese //, ItalianFoodItem - ne moze multiple i
     public bool IsLight { get; }
 
     public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza.");
-
 	
 }
+
+public static class StringExtensions
+{
+//Extension methods can only be defin in static classes, and allways are static
+//Extension methods allow us to seemingly add methods to an existing type without modifiying this type's source code.
+//parameter that method take is of type that we want to extend (string in this case)
+        public static int CountLines(this string input) =>
+            input.Split(Environment.NewLine).Length;
+}
+
+public static class SeasonExtensions
+    {
+        public static Season Next(this Season season)
+        {
+            int seasonAsInt = (int)season;
+            int nextSeason = (seasonAsInt + 1) % 4;
+            return (Season)nextSeason;
+        }
+    }
