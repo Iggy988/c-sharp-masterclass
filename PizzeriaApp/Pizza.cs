@@ -56,13 +56,19 @@ Console.WriteLine("is tomato suce? " + (ingredient is TomatoSauce)); //false
 
 using PizzeriaApp;
 
-public class Pizza
+public class Pizza : Bakeable
 {
     public Ingredient ingredient;
     public int number;
     public DateTime date;
     private List<Ingredient> _ingredients = new List<Ingredient>();
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
+
+    public override string GetInstructions()
+    {
+        throw new NotImplementedException();
+    }
+
     public override string ToString() => $"This is a pizza with {string.Join(", ", _ingredients)}";
 }
 

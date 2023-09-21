@@ -1,4 +1,6 @@
-﻿//var pizza = new Pizza();
+﻿using PizzeriaApp;
+
+//var pizza = new Pizza();
 
 //pizza.AddIngredient(new Cheddar());
 
@@ -27,23 +29,28 @@
 
 //Console.WriteLine(ingredient.Name);
 
-using PizzeriaApp;
 
-var ingredients = new List<Ingredient>
+
+//var ingredients = new List<Ingredient>
+//{
+//    new Cheddar(12,2),
+//    new Mozzarella(3),
+//    new TomatoSauce(4)
+//};
+
+
+
+//foreach (Ingredient ingridient in ingredients)
+//{
+//    Console.WriteLine(ingridient.Name);
+//}
+
+//moraju imati isti type objecti u listi
+var bakeableDishes = new List<object>
 {
-    new Cheddar(12,2),
-    new Mozzarella(3),
-    new TomatoSauce(4)
+    new Pizza(),
+    new Panettone()
 };
-
-
-
-foreach (Ingredient ingridient in ingredients)
-{
-    Console.WriteLine(ingridient.Name);
-}
-
-
 
 Console.ReadKey();
 
