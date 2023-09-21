@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceGame", "DiceGame\DiceGa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOP Advanced", "OOP Advanced", "{42761FB4-8B42-440E-AAC8-0CD4F8AFC424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverrideExample", "OverrideExample\OverrideExample.csproj", "{DEFFEB1D-F205-4BB7-84C4-81FF1094461D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverrideExample", "OverrideExample\OverrideExample.csproj", "{DEFFEB1D-F205-4BB7-84C4-81FF1094461D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzeriaApp", "PizzeriaApp\PizzeriaApp.csproj", "{B40A3310-1E05-45DA-9F32-6033212B4F80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzeriaApp", "PizzeriaApp\PizzeriaApp.csproj", "{B40A3310-1E05-45DA-9F32-6033212B4F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethodsExample", "ExtensionMethodsExample\ExtensionMethodsExample.csproj", "{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{B40A3310-1E05-45DA-9F32-6033212B4F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B40A3310-1E05-45DA-9F32-6033212B4F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B40A3310-1E05-45DA-9F32-6033212B4F80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{D0330530-140F-4243-B777-557F255793FA} = {7CAE5A9B-DBA5-46B4-B619-7F432482DD13}
 		{DEFFEB1D-F205-4BB7-84C4-81FF1094461D} = {42761FB4-8B42-440E-AAC8-0CD4F8AFC424}
 		{B40A3310-1E05-45DA-9F32-6033212B4F80} = {42761FB4-8B42-440E-AAC8-0CD4F8AFC424}
+		{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F} = {42761FB4-8B42-440E-AAC8-0CD4F8AFC424}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
