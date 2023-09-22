@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverrideExample", "Override
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzeriaApp", "PizzeriaApp\PizzeriaApp.csproj", "{B40A3310-1E05-45DA-9F32-6033212B4F80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethodsExample", "ExtensionMethodsExample\ExtensionMethodsExample.csproj", "{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionMethodsExample", "ExtensionMethodsExample\ExtensionMethodsExample.csproj", "{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceExample", "InterfaceExample\InterfaceExample.csproj", "{EF3C7B18-64EC-4FDE-A306-2B7302466D08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfaceExample", "InterfaceExample\InterfaceExample.csproj", "{EF3C7B18-64EC-4FDE-A306-2B7302466D08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookiesCookbook", "CookiesCookbook\CookiesCookbook.csproj", "{AD43BA3A-5B6A-48D7-8A14-3DE76E40E8AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{EF3C7B18-64EC-4FDE-A306-2B7302466D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF3C7B18-64EC-4FDE-A306-2B7302466D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF3C7B18-64EC-4FDE-A306-2B7302466D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD43BA3A-5B6A-48D7-8A14-3DE76E40E8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD43BA3A-5B6A-48D7-8A14-3DE76E40E8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD43BA3A-5B6A-48D7-8A14-3DE76E40E8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD43BA3A-5B6A-48D7-8A14-3DE76E40E8AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{B40A3310-1E05-45DA-9F32-6033212B4F80} = {42761FB4-8B42-440E-AAC8-0CD4F8AFC424}
 		{FBEB4C1B-87E1-40A4-89FA-3D36A66DC53F} = {42761FB4-8B42-440E-AAC8-0CD4F8AFC424}
 		{EF3C7B18-64EC-4FDE-A306-2B7302466D08} = {42761FB4-8B42-440E-AAC8-0CD4F8AFC424}
+		{AD43BA3A-5B6A-48D7-8A14-3DE76E40E8AE} = {42761FB4-8B42-440E-AAC8-0CD4F8AFC424}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
