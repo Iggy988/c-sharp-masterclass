@@ -1,5 +1,4 @@
-﻿
-namespace CookiesCookbook.Recipes;
+﻿namespace CookiesCookbook.Recipes;
 
 public abstract class Ingredient
 {
