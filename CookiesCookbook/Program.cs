@@ -1,17 +1,50 @@
-﻿
-
-using CookiesCookbook.Recipes;
+﻿using CookiesCookbook.Recipes;
 using CookiesCookbook.Recipes.Ingredients;
+using System.Text.Json;
+
+const FileFormat Format = FileFormat.Json;
+
+IStringsRepository stringsRepository = Format == FileFormat.Json
+    ? new StringsJsonRepository()
+    : new StringsTextualRepository();
+
+const string FileName = "recipes";
+var fileMetadata = new FileMetadata(FileName, Format);
+
 
 var ingredientsRegister = new IngredientsRegister();    
 
 var cookiesRecepiesApp = new CookiesRecipesApp(
     new RecipesRepository(
-        new StringsTextualRepository(), ingredientsRegister),
+        new StringsJsonRepository(), ingredientsRegister),
     new RecipesConsoleUserInteraction(ingredientsRegister));
 
-cookiesRecepiesApp.Run("recipes.txt");
+cookiesRecepiesApp.Run(fileMetadata.ToPath());
 
+public class FileMetadata
+{
+    public string Name { get;}
+    public FileFormat Format { get;}
+
+    public FileMetadata(string name, FileFormat format)
+    {
+        Name = name;
+        Format = format;
+    }
+
+    public string ToPath() => $"{Name}.{Format.AsFileExtension()}";    
+}
+
+public static class FileFormatExtension
+{
+    public static string AsFileExtension(this FileFormat fileFormat) => fileFormat == FileFormat.Json ? "json" : "txt";
+}
+
+public enum FileFormat
+{
+    Json,
+    Txt
+}
 
 public class CookiesRecipesApp
 {
@@ -251,20 +284,7 @@ public interface IStringsRepository
     void Write(string filePath, List<string> strings);
 }
 
-public class StringsTextualRepository : StringsRepository
-{
-    private static readonly string Separator = Environment.NewLine;
 
-    protected override string StringsToText(List<string> strings)
-    {
-        return string.Join(Separator, strings);
-    }
-
-    protected override List<string> TextToStrings(string fileContents)
-    {
-        return fileContents.Split(Separator).ToList();
-    }
-}
 
 public abstract class StringsRepository : IStringsRepository
 {
@@ -286,4 +306,32 @@ public abstract class StringsRepository : IStringsRepository
     }
 
     protected abstract string StringsToText(List<string> strings);
+}
+
+public class StringsTextualRepository : StringsRepository
+{
+    private static readonly string Separator = Environment.NewLine;
+
+    protected override string StringsToText(List<string> strings)
+    {
+        return string.Join(Separator, strings);
+    }
+
+    protected override List<string> TextToStrings(string fileContents)
+    {
+        return fileContents.Split(Separator).ToList();
+    }
+}
+
+public class StringsJsonRepository : StringsRepository
+{
+    protected override string StringsToText(List<string> strings)
+    {
+        return JsonSerializer.Serialize(strings);
+    }
+
+    protected override List<string> TextToStrings(string fileContents)
+    {
+        return JsonSerializer.Deserialize<List<string>>(fileContents);
+    }
 }
