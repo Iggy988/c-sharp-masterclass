@@ -4,8 +4,6 @@ using HandlingExceptions;
 Console.WriteLine("Enter a number:");
 string input = Console.ReadLine();
 
-
-
 try
 {
     int number = ParsingToString(input);
@@ -29,12 +27,6 @@ finally
 {
     Console.WriteLine("Finally bloc is being executed.");
 }
-
-
-
-
-
-
 
 var invalidPersonObject = new Person("", -1954);
 var emptyCollection = new List<int>();
@@ -73,8 +65,6 @@ int ParsingToString(string input)
     //}
 }
 
-
-
 int GetFirstElement(IEnumerable<int> numbers)
 {
     foreach (var number in numbers)
@@ -86,12 +76,29 @@ int GetFirstElement(IEnumerable<int> numbers)
 }
 
 
-
 bool CheckIfContains(int value, int[] numbers)
 {
     throw new NotImplementedException();
 }
 
+
+bool IsFirstElementPositive(IEnumerable<int> numbers)
+{
+    try
+    {
+        var firstElement = GetFirstElement(numbers);
+        return firstElement > 0;
+    }
+    catch(InvalidOperationException ex) 
+    {
+        Console.WriteLine("The collection is empty!");
+        return true; 
+    }
+    catch (NullReferenceException ex)
+    {
+        throw new ArgumentNullException("The collection is null.", ex);    
+    }
+}
 
 
 
