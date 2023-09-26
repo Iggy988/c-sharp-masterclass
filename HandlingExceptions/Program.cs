@@ -1,5 +1,6 @@
 ﻿
 using HandlingExceptions;
+using HandlingExceptions.CustomException;
 
 Console.WriteLine("Enter a number:");
 string input = Console.ReadLine();
@@ -38,6 +39,8 @@ var forth = numbers[3];
 var has7 = CheckIfContains(7, numbers);
 
 RecursiveMethod(3);
+
+throw new Exception()
 
 Console.ReadKey();
 
