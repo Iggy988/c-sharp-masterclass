@@ -29,6 +29,33 @@ finally
     Console.WriteLine("Finally bloc is being executed.");
 }
 
+
+//Exception filters
+try
+{
+    var dataFromWeb = SendHttpRequest("www.someAddress.com/get/someResource");
+}
+catch (HttpRequestException ex) when (ex.Message == "403")
+{
+    Console.WriteLine("It was forbidden to access the resource.");
+    throw;
+}
+catch (HttpRequestException ex) when (ex.Message == "404")
+{
+    Console.WriteLine("The resource was not found.");
+    throw;
+}
+catch (HttpRequestException ex) when (ex.Message.StartsWith("4"))
+{
+    Console.WriteLine("Some kind of client error.");
+    throw;
+}
+catch (HttpRequestException ex) when (ex.Message == "500")
+{
+    Console.WriteLine("The server has experienced an internal error.");
+    throw;
+}
+
 var invalidPersonObject = new Person("", -1954);
 var emptyCollection = new List<int>();
 var firstElement = GetFirstElement(emptyCollection);
@@ -40,7 +67,7 @@ var has7 = CheckIfContains(7, numbers);
 
 RecursiveMethod(3);
 
-throw new Exception()
+throw new CustomException();
 
 Console.ReadKey();
 
@@ -107,31 +134,7 @@ bool IsFirstElementPositive(IEnumerable<int> numbers)
     }
 }
 
-//Exception filters
-try
-{
-    var dataFromWeb = SendHttpRequest("www.someAddress.com/get/someResource");
-}
-catch (HttpRequestException ex) when (ex.Message == "403")
-{
-    Console.WriteLine("It was forbidden to access the resource.");
-    throw;
-}
-catch (HttpRequestException ex) when (ex.Message == "404")
-{
-    Console.WriteLine("The resource was not found.");
-    throw;
-}
-catch (HttpRequestException ex) when (ex.Message.StartsWith("4"))
-{
-    Console.WriteLine("Some kind of client error.");
-    throw;
-}
-catch (HttpRequestException ex) when (ex.Message == "500")
-{
-    Console.WriteLine("The server has experienced an internal error.");
-    throw;
-}
+
 
 object SendHttpRequest(string url)
 {
