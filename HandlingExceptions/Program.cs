@@ -67,9 +67,24 @@ var has7 = CheckIfContains(7, numbers);
 
 RecursiveMethod(3);
 
-throw new CustomException();
+//throw new CustomException();
 
+try
+{
+    Run();
+}
+catch (Exception ex)
+{
+    Console.WriteLine(
+        "Sorry. The application has experienced " +
+        "an error. The error message: " + ex.Message);
+    logger.Log(ex);
+}
+
+GotoShowcase();
+Console.WriteLine("Press any key to close.");
 Console.ReadKey();
+
 
 void RecursiveMethod(int counter)
 {
@@ -140,6 +155,48 @@ object SendHttpRequest(string url)
 {
     //send the request
     return null;
+}
+void Run()
+{
+    try
+    {
+        Console.WriteLine("Enter a word");
+        var word = Console.ReadLine();
+        Console.WriteLine("Count of characters is " + word.Length);
+    }
+    catch (NullReferenceException ex)
+    {
+        var logger = new Logger();
+        Console.WriteLine(
+            "The input is null, and its length cannot be calculated. " +
+            "Did you press CTRL+Z in the console?");
+        logger.Log(ex);
+        throw;
+    }
+}
+
+void GotoShowcase()
+{
+    //goto
+    int someNumber = 0;
+    if (someNumber < 0)
+    {
+        goto NegativeNumber;
+    }
+
+    Console.WriteLine("The number is positive or zero.");
+    return;
+
+NegativeNumber:
+    Console.WriteLine("The number is negative.");
+}
+
+public class Logger
+{
+    public void Log(Exception ex)
+    {
+        Console.WriteLine("Writing the exception to a file with a message: " + ex.Message);
+    }
 }
 
 
