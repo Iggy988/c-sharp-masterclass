@@ -2,6 +2,7 @@
 using System.Text.Json;
 
 bool isFileRead = false;
+var fileName = default(string);
 var fileContents = default(string);
 do
 {
@@ -9,7 +10,7 @@ do
     {
 
         Console.WriteLine("Enter the name of the file you want to read");
-        var fileName = Console.ReadLine();
+        fileName = Console.ReadLine();
 
         fileContents = File.ReadAllText(fileName);
         isFileRead = true;
@@ -28,8 +29,16 @@ do
     }
 } while (!isFileRead);
 
+List<VideoGame> videoGames = default;
+try
+{
+    videoGames = JsonSerializer.Deserialize<List<VideoGame>>(fileContents);
+}
+catch (JsonException ex) 
+{
+    throw new JsonException($"{ex.Message} The file is: {fileName}", ex);
+}
 
-var videoGames = JsonSerializer.Deserialize<List<VideoGame>>(fileContents);
 
 if (videoGames.Count > 0)
 {
