@@ -4,6 +4,7 @@ using System.Text.Json;
 
 var app = new GameDataParserApp();
 var logger = new Logger("log.txt");
+
 try
 {
     app.Run();
@@ -26,28 +27,25 @@ public class GameDataParserApp
         var fileContents = default(string);
         do
         {
-            try
+            if (fileName is null)
             {
-
-                Console.WriteLine("Enter the name of the file you want to read");
-                fileName = Console.ReadLine();
-
+                Console.WriteLine("The file name cannot be null.");
+            }
+            else if (fileName == string.Empty)
+            {
+                Console.WriteLine("The file name cannot be empty.");
+            }
+            else if (!File.Exists(fileName))
+            {
+                Console.WriteLine("The file does not exist.");
+            }
+            else
+            {
                 fileContents = File.ReadAllText(fileName);
                 isFileRead = true;
             }
-            catch (ArgumentNullException ex)
-            {
-                Console.WriteLine("The file name cannot be null!");
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("The file name cannot be empty!");
-            }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine("The file does not exist!");
-            }
         } while (!isFileRead);
+
 
         List<VideoGame> videoGames = default;
         try
