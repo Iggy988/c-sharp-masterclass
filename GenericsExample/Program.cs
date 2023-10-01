@@ -76,8 +76,12 @@ var ints = decimals.ConvertTo<decimal, int>();
 var floats = new List<float> { 1.2f, 3.2f, -100.02f};
 List<long> longs = floats.ConvertTo<float, long>();
 
-var dates = new List<DateTime> { new DateTime(2023, 12, 15) };
-var intss = dates.ConvertTo<DateTime, int>();
+//var dates = new List<DateTime> { new DateTime(2023, 12, 15) }; 
+//var intss = dates.ConvertTo<DateTime, int>(); ne mozemo cast DateTime to int
+
+//var points = CreateCollectionOfRandomLength<Point>(100);
+//var intsss = CreateCollectionOfRandomLength<int>(100);
+var dates = CreateCollectionOfRandomLength<DateTime>(100);
 
 Console.ReadKey();
 
@@ -105,24 +109,31 @@ Tuple<int, int> GetMinAndMax(IEnumerable<int> input)
     return new Tuple<int, int>(min, max);
 }
 
-static class ListExtensions
+//Type constraints limit the types that can be used as the generic
+//parameter to some specific group that must meet certain criteria. (where T: new())
+IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
 {
-    public static List<TTarget> ConvertTo<TSource, TTarget>(this List<TSource> decimals)
+    var length = new Random().Next(maxLength + 1);
+    
+    var result = new List<T>();
+
+    for (int i = 0; i < length; ++i)
     {
-        //create new list of ints
-        var result = new List<TTarget>();
-        //iterate list of decimals
-        foreach (var item in decimals)
-        {
-            TTarget itemAfterCasting = (TTarget)Convert.ChangeType(item, typeof(TTarget));
-            //casting every one to int
-            result.Add(itemAfterCasting);
-        }
-        //return collection of integers
-        return result;
+        //da nema type constarinta ne bi mogli dodati novi T object posto ne zna se koji mu je type
+        result.Add(new T());
+        //result.Add(new Point()); moramo dodati params
     }
-    public static void AddToFront<T>(this List<T> list, T value)
+
+    return result;
+}
+
+public class Point
+{
+    public Point(int x, int y)
     {
-        list.Insert(0, value);
+        X = x; 
+        Y = y;
     }
+    public int X { get; set; }
+    public int Y { get; set; }
 }
