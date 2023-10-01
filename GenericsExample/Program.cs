@@ -7,6 +7,8 @@
 
 //Algoritm is a set of steps or instructions that are followed in ordder to solve a problem
 
+//Tuple represent set of value
+
 
 //var words = new List<string> { "ime", "prezime", "godina"};
 //var dates = new List<DateTime> { new DateTime(day: 12, month: 3, year: 2023)};
@@ -30,14 +32,20 @@
 //dates.Add(new DateTime(day: 21, month: 5, year: 2018));
 //dates.Add(new DateTime(day: 5, month: 1, year: 1996));
 
+
 var numbers = new List<int> { 1, 2, 3, 4, 5 };
-TwoInts minAndMax = GetMinAndMax(numbers);
-Console.WriteLine("Smallest number: " + minAndMax.Int1);
-Console.WriteLine("Largest number: " + minAndMax.Int2);
+Tuple<int, int> minAndMax = GetMinAndMax(numbers);
+
+var twoStrings = new Tuple<string, string>("ime", "prezime");
+var differentTuple = new SimpleTuple<string, int>("godina", 2);
+var threeItems = new SimpleTuple<string, int, bool>("godina", 2, false);
+
+Console.WriteLine("Smallest number: " + minAndMax.Item1);
+Console.WriteLine("Largest number: " + minAndMax.Item2);
 
 Console.ReadKey();
 
-TwoInts GetMinAndMax(IEnumerable<int> input)
+Tuple<int, int> GetMinAndMax(IEnumerable<int> input)
 {
     if (!input.Any())
     {
@@ -58,29 +66,31 @@ TwoInts GetMinAndMax(IEnumerable<int> input)
         }
     }
 
-    return new TwoInts(min, max);
+    return new Tuple<int, int>(min, max);
 }
 
-public class TwoInts
+public class SimpleTuple<T1, T2>
 {
-    public TwoInts(int int1, int int2)
+    public SimpleTuple(T1 item1, T2 item2)
     {
-        Int1 = int1;
-        Int2 = int2;
+        Item1 = item1;
+        Item2 = item2;
     }
 
-    public int Int1 { get; }
-    public int Int2 { get; }
+    public T1 Item1 { get; }
+    public T2 Item2 { get; }
 }
 
-public class TwoStrings
+public class SimpleTuple<T1, T2, T3>
 {
-    public TwoStrings(string string1, string string2)
+    public SimpleTuple(T1 item1, T2 item2, T3 item3)
     {
-        String1 = string1;
-        String2 = string2;
+        Item1 = item1;
+        Item2 = item2;
+        Item3 = item3;
     }
 
-    public string String1 { get; }
-    public string String2 { get; }
+    public T1 Item1 { get; }
+    public T2 Item2 { get; }
+    public T3 Item3 { get; }
 }
