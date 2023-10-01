@@ -9,6 +9,9 @@
 
 //Tuple represent set of value
 
+// Type is a class representing types. It contains props like the types name, namespace it belongs to, the base type,
+// or the list of the types constructors. It is a part of reflection mechanism
+
 
 //var words = new List<string> { "ime", "prezime", "godina"};
 //var dates = new List<DateTime> { new DateTime(day: 12, month: 3, year: 2023)};
@@ -34,10 +37,10 @@
 
 
 var numbers = new List<int> { 1, 2, 3, 4, 5 };
-var ints = new List<int> { 1, 2, 3};
+var ints3 = new List<int> { 1, 2, 3};
 
-ints.AddToFront(10);
-ints.AddToFront<int>(11);
+ints3.AddToFront(10);
+ints3.AddToFront<int>(11);
 //ints.AddToFront<int>("string");
 //Tuple<int, int> minAndMax = GetMinAndMax(numbers);
 
@@ -58,14 +61,23 @@ object[] objects = new object[] { 1, "abc", false, new DateTime() };
 
 int sum = 0;
 
-foreach (var number in ints)
+foreach (var number in ints3)
 {
     if (number is int)
     {
         sum += (int)number;
     }
     
-} 
+}
+
+var decimals = new List<decimal> { 1.1m, 2.2m, 23.20m, 12m };
+var ints = decimals.ConvertTo<decimal, int>();
+
+var floats = new List<float> { 1.2f, 3.2f, -100.02f};
+List<long> longs = floats.ConvertTo<float, long>();
+
+var dates = new List<DateTime> { new DateTime(2023, 12, 15) };
+var intss = dates.ConvertTo<DateTime, int>();
 
 Console.ReadKey();
 
@@ -95,6 +107,20 @@ Tuple<int, int> GetMinAndMax(IEnumerable<int> input)
 
 static class ListExtensions
 {
+    public static List<TTarget> ConvertTo<TSource, TTarget>(this List<TSource> decimals)
+    {
+        //create new list of ints
+        var result = new List<TTarget>();
+        //iterate list of decimals
+        foreach (var item in decimals)
+        {
+            TTarget itemAfterCasting = (TTarget)Convert.ChangeType(item, typeof(TTarget));
+            //casting every one to int
+            result.Add(itemAfterCasting);
+        }
+        //return collection of integers
+        return result;
+    }
     public static void AddToFront<T>(this List<T> list, T value)
     {
         list.Insert(0, value);
