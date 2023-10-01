@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 //By using generic types, we can define the behavior of a type(List etc.),
 //once and reuse it for multiple types, reducing the amount of code we need to write
 
@@ -81,7 +82,11 @@ List<long> longs = floats.ConvertTo<float, long>();
 
 //var points = CreateCollectionOfRandomLength<Point>(100);
 //var intsss = CreateCollectionOfRandomLength<int>(100);
-var dates = CreateCollectionOfRandomLength<DateTime>(100);
+Stopwatch stopwatch = Stopwatch.StartNew();
+//stopwatch.Start();
+var dates = CreateCollectionOfRandomLength<DateTime>(0);
+stopwatch.Stop();
+Console.WriteLine($"Execution took {stopwatch.ElapsedMilliseconds} ms.");
 
 Console.ReadKey();
 
@@ -113,9 +118,9 @@ Tuple<int, int> GetMinAndMax(IEnumerable<int> input)
 //parameter to some specific group that must meet certain criteria. (where T: new())
 IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
 {
-    var length = new Random().Next(maxLength + 1);
-    
-    var result = new List<T>();
+    var length = 100000000;//new Random().Next(maxLength + 1);
+    //kad ubacimo length u prop, size ce biti odredjen u momentu kreacije objekta, no resizing needed
+    var result = new List<T>(length); 
 
     for (int i = 0; i < length; ++i)
     {
@@ -125,15 +130,4 @@ IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
     }
 
     return result;
-}
-
-public class Point
-{
-    public Point(int x, int y)
-    {
-        X = x; 
-        Y = y;
-    }
-    public int X { get; set; }
-    public int Y { get; set; }
 }
