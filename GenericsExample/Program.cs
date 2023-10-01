@@ -88,6 +88,29 @@ var dates = CreateCollectionOfRandomLength<DateTime>(0);
 stopwatch.Stop();
 Console.WriteLine($"Execution took {stopwatch.ElapsedMilliseconds} ms.");
 
+var people = new List<Person>()
+{
+    new Person {Name = "John", YearOfBirth = 1980},
+    new Person {Name = "Anna", YearOfBirth = 1915},
+    new Person {Name = "Bill", YearOfBirth = 2011},
+};
+
+var employees = new List<Employee>()
+{
+    new Employee {Name = "John", YearOfBirth = 1980},
+    new Employee {Name = "Anna", YearOfBirth = 1915},
+    new Employee {Name = "Bill", YearOfBirth = 2011},
+};
+
+var validPeople = GetOnlyValid(people);
+var validEmployees = GetOnlyValid(employees);
+
+foreach (var employee in validEmployees)
+{
+    //((Employee)person).GoToWork();
+    employee.GoToWork(); //zato sto smo koristili type constraint
+}
+
 Console.ReadKey();
 
 Tuple<int, int> GetMinAndMax(IEnumerable<int> input)
@@ -130,4 +153,33 @@ IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
     }
 
     return result;
+}
+
+//TPerson can be of any type as long is derived from Person(or it is Person itself)
+IEnumerable<TPerson> GetOnlyValid<TPerson>(IEnumerable<TPerson> persons) where TPerson : Person
+{
+    var result = new List<TPerson>();
+
+    foreach (var person in persons)
+    {
+        if (person.YearOfBirth > 1900 && person.YearOfBirth < DateTime.Now.Year)
+        {
+            result.Add(person);
+        }
+    }
+
+    return result;
+}
+
+public class Person
+{
+
+    public string Name { get; init; }
+    public int YearOfBirth { get; init; }
+}
+
+public class Employee: Person
+{
+
+    public void GoToWork() => Console.WriteLine("Going to work");
 }
