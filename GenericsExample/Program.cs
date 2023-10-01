@@ -13,6 +13,9 @@ using System.Diagnostics;
 // Type is a class representing types. It contains props like the types name, namespace it belongs to, the base type,
 // or the list of the types constructors. It is a part of reflection mechanism
 
+// IComparable<T> it is an interface  that provides a way to compare 2 objects for sorting purposes
+//Sorting -> reordering the elements of a collection in an ascending or descending order
+
 
 //var words = new List<string> { "ime", "prezime", "godina"};
 //var dates = new List<DateTime> { new DateTime(day: 12, month: 3, year: 2023)};
@@ -38,6 +41,7 @@ using System.Diagnostics;
 
 
 var numbers = new List<int> { 1, 2, 3, 4, 5 };
+numbers.Sort();
 var ints3 = new List<int> { 1, 2, 3};
 
 ints3.AddToFront(10);
@@ -55,7 +59,8 @@ ints3.AddToFront<int>(11);
 
 
 ArrayList ints2 = new ArrayList { 2, 3, 4, 5, 6};
-ArrayList strings = new ArrayList { "a", "b", "c", "d" };
+ArrayList strings = new ArrayList { "aa", "b", "cccc", "ddd" };
+strings.Sort();
 
 ArrayList variousItems = new ArrayList { 1, "abc", false, new DateTime()};
 object[] objects = new object[] { 1, "abc", false, new DateTime() };
@@ -94,6 +99,7 @@ var people = new List<Person>()
     new Person {Name = "Anna", YearOfBirth = 1915},
     new Person {Name = "Bill", YearOfBirth = 2011},
 };
+people.Sort();
 
 var employees = new List<Employee>()
 {
@@ -171,11 +177,24 @@ IEnumerable<TPerson> GetOnlyValid<TPerson>(IEnumerable<TPerson> persons) where T
     return result;
 }
 
-public class Person
+public class Person : IComparable<Person>
 {
 
     public string Name { get; init; }
     public int YearOfBirth { get; init; }
+
+    public int CompareTo(Person other)
+    {
+        if (YearOfBirth < other.YearOfBirth)
+        {
+            return 1;
+        }
+        else if (YearOfBirth > other.YearOfBirth)
+        {
+            return -1;
+        }
+        return 0;
+    }
 }
 
 public class Employee: Person
