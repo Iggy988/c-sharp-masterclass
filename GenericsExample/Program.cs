@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics;
+using System.Numerics;
 //By using generic types, we can define the behavior of a type(List etc.),
 //once and reuse it for multiple types, reducing the amount of code we need to write
 
@@ -124,6 +125,10 @@ PrintInOrder(13, 7);
 PrintInOrder("aaa", "bb");
 PrintInOrder(john, anna);
 
+Console.WriteLine("Square of 2 is: " + Calculator.Square(2));
+Console.WriteLine("Square of 4m is: " + Calculator.Square(4m));
+Console.WriteLine("Square of 6d is: " + Calculator.Square(6d));
+
 Console.ReadKey();
 
 void PrintInOrder<T>(T first, T second) where T: IComparable<T>
@@ -195,34 +200,12 @@ IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
     return result;
 }
 
-//TPerson can be of any type as long is derived from Person(or it is Person itself)
-
-
-
-
-public class Person : IComparable<Person>
+public static class Calculator
 {
+    public static T Square<T> (T input) where T: INumber<T> => input * input;
+    // nekad je moralo da se pravi vise metoda koja obradjuje svaki type posebno
+    //public static int Square(int input) => input * input;
+    //public static decimal Square(decimal input) => input * input;
+    //public static double Square(double input) => input * input;
 
-    public string Name { get; init; }
-    public int YearOfBirth { get; init; }
-
-    public override string ToString() => $"{Name} is born {YearOfBirth}.";
-    public int CompareTo(Person other)
-    {
-        if (YearOfBirth < other.YearOfBirth)
-        {
-            return 1;
-        }
-        else if (YearOfBirth > other.YearOfBirth)
-        {
-            return -1;
-        }
-        return 0;
-    }
-}
-
-public class Employee: Person
-{
-
-    public void GoToWork() => Console.WriteLine("Going to work");
 }
