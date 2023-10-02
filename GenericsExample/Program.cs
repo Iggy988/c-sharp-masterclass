@@ -117,7 +117,41 @@ foreach (var employee in validEmployees)
     employee.GoToWork(); //zato sto smo koristili type constraint
 }
 
+var john = new Person { Name = "John", YearOfBirth = 1980 };
+var anna = new Person { Name = "Anna", YearOfBirth = 1915 };
+
+PrintInOrder(13, 7);
+PrintInOrder("aaa", "bb");
+PrintInOrder(john, anna);
+
 Console.ReadKey();
+
+void PrintInOrder<T>(T first, T second) where T: IComparable<T>
+{
+    if (first.CompareTo(second) > 0)
+    {
+        Console.WriteLine($"{second} {first}");
+    }
+    else
+    {
+        Console.WriteLine($"{first} {second}");
+    }
+}
+
+IEnumerable<TPerson> GetOnlyValid<TPerson>(IEnumerable<TPerson> persons) where TPerson : Person
+{
+    var result = new List<TPerson>();
+
+    foreach (var person in persons)
+    {
+        if (person.YearOfBirth > 1900 && person.YearOfBirth < DateTime.Now.Year)
+        {
+            result.Add(person);
+        }
+    }
+
+    return result;
+}
 
 Tuple<int, int> GetMinAndMax(IEnumerable<int> input)
 {
@@ -162,20 +196,9 @@ IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
 }
 
 //TPerson can be of any type as long is derived from Person(or it is Person itself)
-IEnumerable<TPerson> GetOnlyValid<TPerson>(IEnumerable<TPerson> persons) where TPerson : Person
-{
-    var result = new List<TPerson>();
 
-    foreach (var person in persons)
-    {
-        if (person.YearOfBirth > 1900 && person.YearOfBirth < DateTime.Now.Year)
-        {
-            result.Add(person);
-        }
-    }
 
-    return result;
-}
+
 
 public class Person : IComparable<Person>
 {
@@ -183,6 +206,7 @@ public class Person : IComparable<Person>
     public string Name { get; init; }
     public int YearOfBirth { get; init; }
 
+    public override string ToString() => $"{Name} is born {YearOfBirth}.";
     public int CompareTo(Person other)
     {
         if (YearOfBirth < other.YearOfBirth)
