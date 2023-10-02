@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Diagnostics;
-using System.Numerics;
 //By using generic types, we can define the behavior of a type(List etc.),
 //once and reuse it for multiple types, reducing the amount of code we need to write
 
@@ -200,12 +199,10 @@ IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
     return result;
 }
 
-public static class Calculator
+void SomeMethod<TPet, TOwner>(TPet pet, TOwner owner) where TPet : Pet, IComparable<TPet> where TOwner : new()
 {
-    public static T Square<T> (T input) where T: INumber<T> => input * input;
-    // nekad je moralo da se pravi vise metoda koja obradjuje svaki type posebno
-    //public static int Square(int input) => input * input;
-    //public static decimal Square(decimal input) => input * input;
-    //public static double Square(double input) => input * input;
 
 }
+
+public class Pet { }
+public class PetOwner { }
