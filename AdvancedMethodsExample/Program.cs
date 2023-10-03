@@ -1,5 +1,9 @@
 ﻿
 
+
+
+
+
 var numbers = new[] { 1, 7, 2, 19, 3 };
 Func<int, bool> predicate1 = IsLargerThan10;
 Console.WriteLine("IsAnyLargerThan10? " + IsAny(numbers, predicate1));
@@ -24,6 +28,10 @@ bool IsEven(int number)
 {
     return number % 2 == 0;
 }
+
+
+
+
 
 //Func can assign any function that is taking number and returning bool
 // last param is always returning type
@@ -62,6 +70,48 @@ bool IsAnyLargerThan10(IEnumerable<int> numbers)
     return false;
 }
 
+ProcessString delegate1 = TrimTo5Letters;
+ProcessString delegate2 = ToUpper;
+
+Func<string, string> processString1 = TrimTo5Letters;
+Func<string, string> processString2 = ToUpper;
+
+Console.WriteLine(delegate1("Helloooooo"));
+Console.WriteLine(delegate2("Helloooooo"));
+
+Print print1 = text => Console.WriteLine(text.ToUpper());
+Print print2 = text => Console.WriteLine(text.ToLower());
+Print multicast = print1 + print2;
+Print print4 = text => Console.WriteLine(text.Substring(0, 4));
+//A delegate variable that holds references to more than 1 function is called a multicast delegate
+multicast += print4;
+multicast("PeroDeformero");
+
+Func<string, string, int> sumLengths = /*(text1, text2) => text1.Length + text2.Length;*/ SumLength;
+
+
 
 
 Console.ReadKey();
+
+int SumLength(string text1, string text2)
+{
+    return text1.Length + text2.Length; 
+}
+
+
+string TrimTo5Letters(string input)
+{
+    return input.Substring(0, 5);
+}
+
+string ToUpper(string input)
+{
+    return input.ToUpper();
+}
+
+
+// Delegate is a type whose instances hold a reference to a method/s with particular parameter list and return type
+delegate string ProcessString(string input);
+
+delegate void Print(string input);
