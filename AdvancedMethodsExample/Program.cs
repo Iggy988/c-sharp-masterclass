@@ -11,31 +11,13 @@ Func<int, bool> predicate2 = IsEven;
 Console.WriteLine("IsAnyLargerThan10? " + IsAny(numbers, predicate2));
 Console.WriteLine("IsAnyLargerThan10? " + IsAny(numbers, IsEven));
 
+//Lambda expression / param => expression  () => expression - no params lambda
+Console.WriteLine("IsAnyEven " + IsAny(numbers, n => n % 2 ==0));
+
 
 bool IsLargerThan10(int number)
 {
     return number > 10;
-}
-
-
-
-Console.WriteLine("IsAnyLargerThan10? " + IsAnyLargerThan10(numbers));
-Console.WriteLine("IsAnyEven? " + IsAnyEven(numbers));
-
-Func<int, DateTime, string, decimal> someFunc;
-Action<string, string, bool> someAction;
-
-bool IsAnyLargerThan10(IEnumerable<int> numbers)
-{
-    foreach (var number in numbers)
-    {
-        if (number > 10)
-        {
-            return true;
-        }
-       
-    }
-    return false;
 }
 
 bool IsEven(int number)
@@ -57,5 +39,29 @@ bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate)
     }
     return false;
 }
+
+
+
+
+Console.WriteLine("IsAnyLargerThan10? " + IsAnyLargerThan10(numbers));
+//Console.WriteLine("IsAnyEven? " + IsAnyEven(numbers));
+
+Func<int, DateTime, string, decimal> someFunc;
+Action<string, string, bool> someAction;
+
+bool IsAnyLargerThan10(IEnumerable<int> numbers)
+{
+    foreach (var number in numbers)
+    {
+        if (number > 10)
+        {
+            return true;
+        }
+       
+    }
+    return false;
+}
+
+
 
 Console.ReadKey();
