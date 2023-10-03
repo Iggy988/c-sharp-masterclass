@@ -1,9 +1,4 @@
 ﻿
-
-
-
-
-
 var numbers = new[] { 1, 7, 2, 19, 3 };
 Func<int, bool> predicate1 = IsLargerThan10;
 Console.WriteLine("IsAnyLargerThan10? " + IsAny(numbers, predicate1));
@@ -28,8 +23,6 @@ bool IsEven(int number)
 {
     return number % 2 == 0;
 }
-
-
 
 
 
@@ -89,8 +82,32 @@ multicast("PeroDeformero");
 
 Func<string, string, int> sumLengths = /*(text1, text2) => text1.Length + text2.Length;*/ SumLength;
 
+//Dictionary is a collection of key-value pairs
+var countryToCurrencyMapping = new Dictionary<string, string>
+{
+    { "Russia", "Ruble" },
+    { "Germany", "EUR" },
+};
 
+var countryToCurrencyMapping2 = new Dictionary<string, string>
+{
+    ["HR"] = "HRK",
+    ["SR"] = "SRD",
+    ["China"] = "JEN",
+};
 
+countryToCurrencyMapping.Add("USA", "USD");
+countryToCurrencyMapping.Add("India", "INR");
+countryToCurrencyMapping.Add("BiH", "KM");
+
+foreach (var country in countryToCurrencyMapping)
+{
+    Console.WriteLine(country.Key + " - " + country.Value);
+}
+
+Console.WriteLine("Currency in BiH is " + countryToCurrencyMapping["BiH"]);
+
+countryToCurrencyMapping["Poland"] = "EUR";
 
 Console.ReadKey();
 
