@@ -117,78 +117,79 @@ Even
 Odd
 Positive");
 
+
+//List<int> result;
+//switch (userInput)
+//{
+//    case "Even":
+//        result = Select(numberss, number => number % 2 == 0);
+//        break;
+//    case "Odd":
+//        result = Select(numberss, number => number % 2 == 1);
+//        break;
+//    case "Positive":
+//        result = Select(numberss, number => number > 0);
+//        break;
+//    default:
+//        throw new NotSupportedException("User input is not valid");      
+//}
+
+//List<int> Select(List<int> numberss, Func<int, bool> predicate)
+//{
+//    var result = new List<int>();
+//    foreach (var number in numberss)
+//    {
+//        if (predicate(number))
+//        {
+//            result.Add(number);
+//        }
+//    }
+//    return result;
+//}
+
+//List<int> SelectEven(List<int> numberss)
+//{
+//    var result =new List<int>();
+//    foreach (var number in numberss)
+//    {
+//        if (number % 2 == 0)
+//        {
+//            result.Add(number);
+//        }
+//    }  
+//    return result;
+//}
+
+//List<int> SelectOdd(List<int> numberss)
+//{
+//    var result = new List<int>();
+//    foreach (var number in numberss)
+//    {
+//        if (number % 2 == 1)
+//        {
+//            result.Add(number);
+//        }
+//    }
+//    return result;
+//}
+
+//List<int> SelectPositive(List<int> numberss)
+//{
+//    var result = new List<int>();
+//    foreach (var number in numberss)
+//    {
+//        if (number > 0)
+//        {
+//            result.Add(number);
+//        }
+//    }
+//    return result;
+//}
+
 var userInput = Console.ReadLine();
-
-List<int> result;
-switch (userInput)
-{
-    case "Even":
-        result = Select(numberss, number => number % 2 == 0);
-        break;
-    case "Odd":
-        result = Select(numberss, number => number % 2 == 1);
-        break;
-    case "Positive":
-        result = Select(numberss, number => number > 0);
-        break;
-    default:
-        throw new NotSupportedException("User input is not valid");
-        
-}
-
-List<int> Select(List<int> numberss, Func<int, bool> predicate)
-{
-    var result = new List<int>();
-    foreach (var number in numberss)
-    {
-        if (predicate(number))
-        {
-            result.Add(number);
-        }
-    }
-    return result;
-}
-
-List<int> SelectEven(List<int> numberss)
-{
-    var result =new List<int>();
-    foreach (var number in numberss)
-    {
-        if (number % 2 == 0)
-        {
-            result.Add(number);
-        }
-    }  
-    return result;
-}
-
-List<int> SelectOdd(List<int> numberss)
-{
-    var result = new List<int>();
-    foreach (var number in numberss)
-    {
-        if (number % 2 == 1)
-        {
-            result.Add(number);
-        }
-    }
-    return result;
-}
-
-List<int> SelectPositive(List<int> numberss)
-{
-    var result = new List<int>();
-    foreach (var number in numberss)
-    {
-        if (number > 0)
-        {
-            result.Add(number);
-        }
-    }
-    return result;
-}
-
 Print(numbers);
+
+var filteringStartegy = new FilteringStrategySelector().Select(userInput);
 
 Console.ReadKey();
 
@@ -218,49 +219,3 @@ string ToUpper(string input)
 delegate string ProcessString(string input);
 
 delegate void Print(string input);
-
-public class FilteringStrategySelector
-{
-    private readonly Dictionary<string, Func<int, bool>> _filteringStrategies =
-        new Dictionary<string, Func<int, bool>>
-        {
-            ["Even"] = number => number % 2 == 0,
-            ["Odd"] = number => number % 2 == 1,
-            ["Positive"] = number => number > 0,
-            ["Negative"] = number => number < 0,
-        };
-
-    public IEnumerable<string> FilteringStrategiesNames =>
-        _filteringStrategies.Keys;
-
-    public Func<int, bool> Select(string filteringType)
-    {
-        if (!_filteringStrategies.ContainsKey(filteringType))
-        {
-            throw new NotSupportedException(
-                    $"{filteringType} is not a valid filter");
-        }
-
-        return _filteringStrategies[filteringType];
-    }
-}
-
-public class Filter
-{
-    public IEnumerable<T> FilterBy<T>(
-        Func<T, bool> predicate,
-        IEnumerable<T> numbers)
-    {
-        var result = new List<T>();
-
-        foreach (var number in numbers)
-        {
-            if (predicate(number))
-            {
-                result.Add(number);
-            }
-        }
-
-        return result;
-    }
-}
