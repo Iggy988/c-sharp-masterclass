@@ -191,7 +191,7 @@ var userInput = Console.ReadLine();
 var filteringStartegy = new FilteringStrategySelector().Select(userInput);
 var result = new Filter().FilterBy(filteringStartegy, numberss);
 
-Print(wordsToBeFiltered);
+Print(result);
 
 var wordsToBeFiltered = new[] { "zebra", "ostrich", "otter" };
 var oWords = new Filter().FilterBy(
