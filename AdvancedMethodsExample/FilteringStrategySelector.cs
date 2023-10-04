@@ -11,6 +11,7 @@ public class FilteringStrategySelector
         };
 
     public IEnumerable<string> FilteringStrategiesNames =>
+        //exposses collection of keys
         _filteringStrategies.Keys;
 
     public Func<int, bool> Select(string filteringType)

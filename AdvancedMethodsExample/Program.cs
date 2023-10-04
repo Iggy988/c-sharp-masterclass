@@ -111,11 +111,10 @@ countryToCurrencyMapping["Poland"] = "EUR";
 
 
 var numberss = new List<int> { 10, 12, -100, 55, 16, 23 };
+var filteringStartegySelector = new FilteringStrategySelector();
 
-Console.WriteLine(@"Select filter:
-Even
-Odd
-Positive");
+Console.WriteLine(@"Select filter:");
+Console.WriteLine(string.Join(Environment.NewLine, filteringStartegySelector.FilteringStrategiesNames));
 
 
 //List<int> result;
@@ -187,9 +186,19 @@ Positive");
 //}
 
 var userInput = Console.ReadLine();
-Print(numbers);
+
 
 var filteringStartegy = new FilteringStrategySelector().Select(userInput);
+var result = new Filter().FilterBy(filteringStartegy, numberss);
+
+Print(wordsToBeFiltered);
+
+var wordsToBeFiltered = new[] { "zebra", "ostrich", "otter" };
+var oWords = new Filter().FilterBy(
+    word => word.StartsWith("o"),
+    wordsToBeFiltered);
+
+Console.WriteLine("Press any key to close.");
 
 Console.ReadKey();
 
