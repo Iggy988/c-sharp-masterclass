@@ -41,7 +41,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GenericsAndAdvancedMethods"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericsExample", "GenericsExample\GenericsExample.csproj", "{8D6C8ED5-C8D9-46A8-ADA4-DF59373978A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedMethodsExample", "AdvancedMethodsExample\AdvancedMethodsExample.csproj", "{F74D7BA0-E21E-4D20-826D-355234D71AE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMethodsExample", "AdvancedMethodsExample\AdvancedMethodsExample.csproj", "{F74D7BA0-E21E-4D20-826D-355234D71AE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomCacheExample", "CustomCacheExample\CustomCacheExample.csproj", "{31F88EA8-E483-49EC-B67E-B0821CBF988A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,10 @@ Global
 		{F74D7BA0-E21E-4D20-826D-355234D71AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F74D7BA0-E21E-4D20-826D-355234D71AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F74D7BA0-E21E-4D20-826D-355234D71AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F88EA8-E483-49EC-B67E-B0821CBF988A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F88EA8-E483-49EC-B67E-B0821CBF988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F88EA8-E483-49EC-B67E-B0821CBF988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F88EA8-E483-49EC-B67E-B0821CBF988A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +135,7 @@ Global
 		{E0F3CE97-75CE-4B8C-9CB2-7333AF131BBF} = {B0B33FD3-E8AA-4C95-9C09-A4497D9E3D6D}
 		{8D6C8ED5-C8D9-46A8-ADA4-DF59373978A8} = {994068F3-E5AE-49ED-86C6-E4A2FEC3EA6F}
 		{F74D7BA0-E21E-4D20-826D-355234D71AE5} = {994068F3-E5AE-49ED-86C6-E4A2FEC3EA6F}
+		{31F88EA8-E483-49EC-B67E-B0821CBF988A} = {994068F3-E5AE-49ED-86C6-E4A2FEC3EA6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
