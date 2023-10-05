@@ -1,6 +1,9 @@
 ﻿//var dataDownloader = new SlowDataDownloader();
-var catche = new Cache<string, string>();
-var dataDownloader = new CachingDataDownloader( new SlowDataDownloader(), catche);
+//var catche = new Cache<string, string>();
+var dataDownloader =
+    new CachingDataDownloader(
+        new PrintDataDownloader(
+            new SlowDataDownloader()));
 
 Console.WriteLine(dataDownloader.DownloadData("id1"));
 Console.WriteLine(dataDownloader.DownloadData("id2"));
@@ -32,10 +35,10 @@ public class CachingDataDownloader : IDataDownloader
 {
     private readonly IDataDownloader _dataDownloader;
     private readonly Cache<string, string> _cache =  new();
-    public CachingDataDownloader(IDataDownloader dataDownloader, Cache<string, string> cache)
+    public CachingDataDownloader(IDataDownloader dataDownloader/*, Cache<string, string> cache*/)
     {
         _dataDownloader = dataDownloader;
-        _cache = cache;
+        //_cache = cache;
     }
     public string DownloadData(string resourceId)
     {
@@ -43,20 +46,17 @@ public class CachingDataDownloader : IDataDownloader
     }
 }
 
-public class Cache<TKey, TData>
+public class PrintDataDownloader : IDataDownloader
 {
-    private readonly Dictionary<TKey, TData> _cachedData = new();
-
-    //Get method takes 2 param: key that identifies some data, and getForTheFirstTime method that can use this key to retrive data
-    public TData Get(TKey key, Func<TKey, TData> getForTheFirstTime)
+    private readonly IDataDownloader _dataDownloader;
+    public PrintDataDownloader(IDataDownloader dataDownloader)
     {
-        //if this data is not yet cached -> not yet requested in the past
-        if (!_cachedData.ContainsKey(key))
-        {
-            //getForTheFirstTime will be executed to fetch this data for the first time - stored in dictionary
-            _cachedData[key] = getForTheFirstTime(key);
-        }
-        // we can find data in cached dictionary
-        return _cachedData[key];
-    } 
+        _dataDownloader = dataDownloader;
+    }
+    public string DownloadData(string resourceId)
+    {
+        var data = _dataDownloader.DownloadData(resourceId);
+        Console.WriteLine("Data is ready!");
+        return data;
+    }
 }
