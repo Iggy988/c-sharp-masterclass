@@ -1,4 +1,6 @@
-﻿var dataDownloader = new SlowDataDownloader();
+﻿//var dataDownloader = new SlowDataDownloader();
+var catche = new Cache<string, string>();
+var dataDownloader = new CachingDataDownloader( new SlowDataDownloader(), catche);
 
 Console.WriteLine(dataDownloader.DownloadData("id1"));
 Console.WriteLine(dataDownloader.DownloadData("id2"));
@@ -17,17 +19,27 @@ public interface IDataDownloader
 
 public class SlowDataDownloader : IDataDownloader
 {
-    private readonly Cache<string, string> _cache = new();
-    // this method use cache class
+   
     public string DownloadData(string resourceId)
-    {
-        return _cache.Get(resourceId, DownloadDataWithoutCaching);
-    }
-
-    private string DownloadDataWithoutCaching(string resourceId)
     {
         Thread.Sleep(1000);
         return $"Some data for {resourceId}";
+    }
+
+}
+
+public class CachingDataDownloader : IDataDownloader
+{
+    private readonly IDataDownloader _dataDownloader;
+    private readonly Cache<string, string> _cache =  new();
+    public CachingDataDownloader(IDataDownloader dataDownloader, Cache<string, string> cache)
+    {
+        _dataDownloader = dataDownloader;
+        _cache = cache;
+    }
+    public string DownloadData(string resourceId)
+    {
+        return _cache.Get(resourceId, _dataDownloader.DownloadData);
     }
 }
 
