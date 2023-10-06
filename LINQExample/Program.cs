@@ -1,4 +1,6 @@
 ﻿
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 var wordsNoUppercase = new string[]
 {
     "quick", "brown", "fox"
@@ -13,10 +15,15 @@ Console.WriteLine(IsAnyWordUpperCase_Linq(wordsWithUppercase));
 var words = new List<string> { "a", "bb", "ccc", "dddd" };
 var wordsLongerThan2 = words.Where(word => word.Length > 2);
 
-var numbers = new int[] { 1, 2, 3, 4, 5, 6 };
-var oddNumbers = numbers.Where(number => number %2 == 1);
+var numbers = new int[] { 7, 5, 3, 4, 2, 6, 1 };
+//var oddNumbers = numbers.Where(number => number %2 == 1);
+var orderOddNumbers = numbers.Where(number => number % 2 == 1).OrderByDescending(number => number);
+Console.WriteLine("Ordered numbers: " + string.Join(", ", orderOddNumbers));
 
+var NumbersWith10 = numbers.Append(10); //kreira se nova collection
 
+//LINQ methods take IEnumerable<T> as a parameter
+//LINQ methods return IEnumerable<T>
 Console.ReadKey();
 
 static bool IsAnyWordUpperCase_Linq(IEnumerable<string> words)
