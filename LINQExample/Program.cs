@@ -14,6 +14,13 @@ Console.WriteLine(IsAnyWordUpperCase_Linq(wordsWithUppercase));
 
 var words = new List<string> { "a", "bb", "ccc", "dddd" };
 var wordsLongerThan2 = words.Where(word => word.Length > 2);
+//Linq nije data vec query, ako pretvorimo linq u list nece uvrstiti e iako ga dodamo
+var wordsShorterThan3 = words.Where(word => word.Length < 3).ToList();
+words.Add("e");
+foreach (var word in wordsShorterThan3)
+{
+    Console.WriteLine(word);
+}
 
 var numbers = new int[] { 7, 5, 3, 4, 2, 6, 1 };
 //var oddNumbers = numbers.Where(number => number %2 == 1);
@@ -24,6 +31,38 @@ var NumbersWith10 = numbers.Append(10); //kreira se nova collection
 
 //LINQ methods take IEnumerable<T> as a parameter
 //LINQ methods return IEnumerable<T>
+//Deferred execution means that the evaulation of a LINQ expreddion is delayed until the value is actually needed (avoids unnecessary execution)
+//Any - used to check if any element satisfy the given criteria, returns bool
+
+var people = new List<Person>
+{
+    new Person("Igor", "BiH"),
+    new Person("Joldza", "USA"),
+};
+
+var allBosnians = people.Where(person => person.Countury == "BiH");
+Console.WriteLine(string.Join(" ", allBosnians));
+
+var notAllBosnians = allBosnians.Take(100);
+
+var animals = new List<string>()
+{
+    "Duck", "Lion", "Dolphin", "Cat"
+};
+
+var animalsWithD = animals.Where(animal =>
+{
+    //Console.Write("Checking animal: " + animal);
+    return animal.StartsWith("D");
+});
+
+Console.WriteLine(string.Join(Environment.NewLine, animalsWithD));
+
+//foreach (var animal in animalsWithD)
+//{
+//    Console.WriteLine(animal);
+//}
+
 Console.ReadKey();
 
 static bool IsAnyWordUpperCase_Linq(IEnumerable<string> words)
