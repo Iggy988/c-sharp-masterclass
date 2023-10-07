@@ -22,7 +22,13 @@ foreach (var word in wordsShorterThan3)
     Console.WriteLine(word);
 }
 
-var numbers = new int[] { 7, 5, 3, 4, -5, 2, 6, 1, -13 };
+var numbers = new int[] {10, 7, 5, 3, 4, -5, 2, 6, 1, -13 };
+
+var firstNumber = numbers.First();
+Printer.Print(firstNumber, nameof(firstNumber));
+
+var firstOddNumber = numbers.First(number => number % 2 ==1);
+Printer.Print(firstOddNumber, nameof(firstOddNumber));
 
 var orderNumbers = numbers.OrderBy(x => x);
 Printer.Print(orderNumbers, nameof(orderNumbers));
@@ -85,6 +91,19 @@ var pets = new[]
                 new Pet(7, "Storm", PetType.Cat, 0.9f),
                 new Pet(8, "Nyan", PetType.Cat, 2.2f)
             };
+
+var lastDog = pets.Last(p => p.PetType == PetType.Dog);
+Printer.Print(lastDog, nameof(lastDog));
+
+//ako koristimo First or Last moramo biti sigurni da ce biti element u skladu sa postavljenim queryjem jer u suprotnom ce vratiti exception
+//var lastHavierThan100 = pets.Last(p => p.Weight > 100);
+//Printer.Print(lastHavierThan100, nameof(lastHavierThan100));
+
+var lastHavierThan100 = pets.LastOrDefault(p => p.Weight > 100);
+Printer.Print(lastHavierThan100, nameof(lastHavierThan100));
+
+var heaviestPet = pets.OrderBy(p=>p.Weight).Last();
+Printer.Print(heaviestPet, nameof(heaviestPet));
 
 var petsOrderByTypeThenName = pets.OrderBy(p => p.PetType).ThenBy(p =>p.Name);
 Printer.Print(petsOrderByTypeThenName, nameof(petsOrderByTypeThenName));
