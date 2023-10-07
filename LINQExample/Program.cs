@@ -22,7 +22,10 @@ foreach (var word in wordsShorterThan3)
     Console.WriteLine(word);
 }
 
-var numbers = new int[] { 7, 5, 3, 4, 2, 6, 1 };
+var numbers = new int[] { 7, 5, 3, 4, -5, 2, 6, 1, -13 };
+
+var orderNumbers = numbers.OrderBy(x => x);
+Printer.Print(orderNumbers, nameof(orderNumbers));
 
 //Count - checks is given element present in collection
 var is7Present = numbers.Contains(7);
@@ -82,6 +85,15 @@ var pets = new[]
                 new Pet(7, "Storm", PetType.Cat, 0.9f),
                 new Pet(8, "Nyan", PetType.Cat, 2.2f)
             };
+
+var petsOrderByTypeThenName = pets.OrderBy(p => p.PetType).ThenBy(p =>p.Name);
+Printer.Print(petsOrderByTypeThenName, nameof(petsOrderByTypeThenName));
+
+var petsOrderByName = pets.OrderBy(p => p.Name);
+Printer.Print(petsOrderByName, nameof(petsOrderByName));
+
+var petsOrderByIdDesc = pets.OrderByDescending(p => p.Id);
+Printer.Print(petsOrderByIdDesc, nameof(petsOrderByIdDesc));
 
 var countOfDogs = pets.Count(pet => pet.PetType == PetType.Dog);
 Printer.Print(countOfDogs, nameof(countOfDogs));
