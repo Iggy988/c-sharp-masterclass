@@ -24,6 +24,10 @@ foreach (var word in wordsShorterThan3)
 
 var numbers = new int[] { 7, 5, 3, 4, 2, 6, 1 };
 
+//Count - checks is given element present in collection
+var is7Present = numbers.Contains(7);
+Printer.Print(is7Present, nameof(is7Present));
+
 var areAllLargerThanZero = numbers.All(x => x > 0);
 Printer.Print(areAllLargerThanZero, nameof(areAllLargerThanZero));
 
