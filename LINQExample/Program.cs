@@ -24,6 +24,9 @@ foreach (var word in wordsShorterThan3)
 
 var numbers = new int[] {10, 7, 5, 3, 4, -5, 2, 6, 1, -13 };
 
+var evenNumbers = numbers.Where(x => x % 2 == 0);
+Printer.Print(evenNumbers, nameof(evenNumbers));
+
 var firstNumber = numbers.First();
 Printer.Print(firstNumber, nameof(firstNumber));
 
@@ -92,6 +95,12 @@ var pets = new[]
                 new Pet(8, "Nyan", PetType.Cat, 2.2f)
             };
 
+var heavierThan10 = pets.Where(pet => pet.Weight > 10);
+Printer.Print(heavierThan10, nameof(heavierThan10));
+// ako nema elmenta matching predicate, vratice The collection is empty!
+var heavierThan100 = pets.Where(pet => pet.Weight > 100);
+Printer.Print(heavierThan100, nameof(heavierThan100));
+
 var lastDog = pets.Last(p => p.PetType == PetType.Dog);
 Printer.Print(lastDog, nameof(lastDog));
 
@@ -101,7 +110,7 @@ Printer.Print(lastDog, nameof(lastDog));
 
 var lastHavierThan100 = pets.LastOrDefault(p => p.Weight > 100);
 Printer.Print(lastHavierThan100, nameof(lastHavierThan100));
-
+//OrderBy se koristi sa First ili Last
 var heaviestPet = pets.OrderBy(p=>p.Weight).Last();
 Printer.Print(heaviestPet, nameof(heaviestPet));
 
@@ -140,6 +149,23 @@ Printer.Print(isAnyFish, nameof(isAnyFish));
 
 var isThereAVerySpecifcPet= pets.Any(pet => pet.Name.Length > 6 && pet.Id % 2 == 0);
 Printer.Print(isThereAVerySpecifcPet, nameof(isThereAVerySpecifcPet));
+
+var specificPets = pets.Where(pet => 
+    (pet.PetType == PetType.Cat || 
+    pet.PetType == PetType.Dog) &&
+    pet.Weight > 10 &&
+    pet.Id % 2 == 0);
+Printer.Print(specificPets, nameof(specificPets));
+
+var indexesSelectedByUser = new[] { 1, 6, 7 };
+var petsSelectedByUserAndLighterThan5 = pets
+    .Where((pet, index) =>
+        pet.Weight < 5 &&
+        indexesSelectedByUser.Contains(index));
+Printer.Print(petsSelectedByUserAndLighterThan5, nameof(petsSelectedByUserAndLighterThan5));
+
+int countOfHeavyPets1 = pets.Count(pet => pet.Weight > 30);
+int countOfHeavyPets2 = pets.Where(pet => pet.Weight > 30).Count();
 
 var isNotEmpty = pets.Any();
 
