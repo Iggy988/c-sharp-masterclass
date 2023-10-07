@@ -23,6 +23,10 @@ foreach (var word in wordsShorterThan3)
 }
 
 var numbers = new int[] { 7, 5, 3, 4, 2, 6, 1 };
+
+var areAllLargerThanZero = numbers.All(x => x > 0);
+Printer.Print(areAllLargerThanZero, nameof(areAllLargerThanZero));
+
 //var oddNumbers = numbers.Where(number => number %2 == 1);
 var orderOddNumbers = numbers.Where(number => number % 2 == 1).OrderByDescending(number => number);
 Console.WriteLine("Ordered numbers: " + string.Join(", ", orderOddNumbers));
@@ -74,6 +78,12 @@ var pets = new[]
                 new Pet(7, "Storm", PetType.Cat, 0.9f),
                 new Pet(8, "Nyan", PetType.Cat, 2.2f)
             };
+
+var doAllHaveNoEmptyNames = pets.All(pet => !string.IsNullOrEmpty(pet.Name));
+Printer.Print(doAllHaveNoEmptyNames, nameof(doAllHaveNoEmptyNames));
+
+var areAllCats = pets.All(pet => pet.PetType == PetType.Cat);
+Printer.Print(areAllCats, nameof(areAllCats));
 
 var isAnyPetNamedBruce = pets.Any(pet => pet.Name == "Bruce");
 Printer.Print(isAnyPetNamedBruce, nameof(isAnyPetNamedBruce));
