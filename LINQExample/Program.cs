@@ -79,6 +79,18 @@ var pets = new[]
                 new Pet(8, "Nyan", PetType.Cat, 2.2f)
             };
 
+var countOfDogs = pets.Count(pet => pet.PetType == PetType.Dog);
+Printer.Print(countOfDogs, nameof(countOfDogs));
+
+var countOfSmallDogs = pets.Count(pet => pet.PetType == PetType.Dog && pet.Weight < 10);
+Printer.Print(countOfSmallDogs, nameof(countOfSmallDogs));
+
+var allPets = pets.Count();
+Printer.Print(allPets, nameof(allPets));
+
+var countOfPetsNamedBruce = pets.LongCount(pet => pet.Name == "Bruce");
+Printer.Print(countOfPetsNamedBruce, nameof(countOfPetsNamedBruce));
+
 var doAllHaveNoEmptyNames = pets.All(pet => !string.IsNullOrEmpty(pet.Name));
 Printer.Print(doAllHaveNoEmptyNames, nameof(doAllHaveNoEmptyNames));
 
