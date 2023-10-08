@@ -6,6 +6,13 @@ var wordsNoUppercase = new string[]
     "quick", "brown", "fox"
 };
 Console.WriteLine(IsAnyWordUpperCase(wordsNoUppercase));
+
+var toUpper = wordsNoUppercase.Select(x => x.ToUpper());
+Printer.Print(wordsNoUppercase, nameof(wordsNoUppercase));
+
+var numberedWords = wordsNoUppercase.Select((word, index) => $"{index +1}. {word}");
+Printer.Print(numberedWords, nameof(numberedWords));
+
 var wordsWithUppercase = new string[]
 {
     "quick", "brown", "FOX"
@@ -22,7 +29,16 @@ foreach (var word in wordsShorterThan3)
     Console.WriteLine(word);
 }
 
-var numbers = new int[] {10, 7, 5, 3, 4, -5, 2, 6, 1, -13 };
+var numbers = new int[] {10, 7, 5, 3, 4, -5, 2, 6, 1, -13, 10, 3, -5, 1 };
+
+var numbersAsStrings = numbers.Select(numbers => numbers.ToString());
+Printer.Print(numbersAsStrings, nameof(numbersAsStrings));
+
+var doubledNumbers = numbers.Select(number => number * 2);
+Printer.Print(doubledNumbers, nameof(doubledNumbers));
+
+var mumbersNoDuplicates = numbers.Distinct();
+Printer.Print(mumbersNoDuplicates, nameof(mumbersNoDuplicates));
 
 var evenNumbers = numbers.Where(x => x % 2 == 0);
 Printer.Print(evenNumbers, nameof(evenNumbers));
@@ -70,6 +86,7 @@ var animals = new List<string>()
     "Duck", "Lion", "Dolphin", "Cat"
 };
 
+
 var animalsWithD = animals.Where(animal =>
 {
     //Console.Write("Checking animal: " + animal);
@@ -94,6 +111,22 @@ var pets = new[]
                 new Pet(7, "Storm", PetType.Cat, 0.9f),
                 new Pet(8, "Nyan", PetType.Cat, 2.2f)
             };
+
+var weights = pets.Select(pets => pets.Weight);
+
+var heavyPets = pets
+    .Where(pet => pet.Weight > 4) //filter collection and leave only heavier than 4
+    .Select(pets => pets.PetType) // select pet type
+    .Distinct(); //to get rid of duplicates
+Printer.Print(heavyPets, nameof(heavyPets));
+
+var petsInitials = pets
+    .OrderBy(pet => pet.Name)
+    .Select(pet => $"{pet.Name.First()}.");
+Printer.Print(petsInitials, nameof(petsInitials));
+
+var petsData = pets.Select(pet => $"Pet named {pet.Name}, of type {pet.PetType} and weight {pet.Weight}");
+Printer.Print(petsData, nameof(petsData));
 
 var heavierThan10 = pets.Where(pet => pet.Weight > 10);
 Printer.Print(heavierThan10, nameof(heavierThan10));
