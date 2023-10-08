@@ -12,11 +12,10 @@ public class Recipe
 
     public override string ToString()
     {
-        var step = new List<string>();
-        foreach (var ingredient in Ingredients)
-        {
-            step.Add($"{ingredient.Name}. {ingredient.PreparationInstructions}");
-        }
+        var step = Ingredients
+            .Select(ingre => $"{ingre.Name}. {ingre.PreparationInstructions}");
+            
+       
         return string.Join(Environment.NewLine, step);
     }
 }
