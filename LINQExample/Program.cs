@@ -1,6 +1,4 @@
 ﻿
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
 var wordsNoUppercase = new string[]
 {
     "quick", "brown", "fox"
@@ -111,6 +109,36 @@ var pets = new[]
                 new Pet(7, "Storm", PetType.Cat, 0.9f),
                 new Pet(8, "Nyan", PetType.Cat, 2.2f)
             };
+
+
+var listOfNumbers = new List<List<int>>
+{
+    new List<int> { 1, 2, 3, 4, 5, 6, 7, 8},
+    new List<int> { 21, 23, 34, -19, 18, 6, 43},
+    new List<int> { 5, -2, -6, -12, -10, -8},
+};
+
+//var result = listOfNumbers.Select(listOfNumbers => new CountAndAverage
+//var result = listOfNumbers.Select(listOfNumbers => new Tuple<int, double>
+//(
+//    listOfNumbers.Count(),
+//    listOfNumbers.Average()
+//))
+//    .OrderByDescending(x => x.Item2)
+//    .Select(x => $"Count is: {x.Item1}. Average is: {x.Item2}");
+// Anonimous class - to create object, withaout specific type, and we dont want to use this object anywhere else
+//we can name props anything we want
+var result = listOfNumbers.Select(listOfNumbers => new
+{
+    Count = listOfNumbers.Count(),
+    Average = listOfNumbers.Average()
+})
+    .OrderByDescending(x => x.Count)
+    .Select(x => $"Count is: {x.Count}. Average is: {x.Average}");
+Printer.Print(result, nameof(result));
+
+//var pet = new { Name = "Jackie", Type = "Dog" };
+//pet.Name = "King"; anonymus object has only public getter, not setter
 
 var weights = pets.Select(pets => pets.Weight);
 
