@@ -23,7 +23,16 @@ int otherNumber = 15;
 MethodWithOutParameter(out otherNumber);
 Console.WriteLine("other number is " + otherNumber);
 
+var list = new List<int> { 1,2,3,4};
+AddOneToList(ref list);
+
 Console.ReadKey();
+
+//list is a class, so a reference type
+void AddOneToList(ref List<int> numbers)
+{
+    numbers = null;
+}
 
 //ref -> reference
 void AddOneToNumber(ref int number)
