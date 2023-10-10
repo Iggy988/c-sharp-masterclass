@@ -5,11 +5,11 @@ anotherNumber++;
 Console.WriteLine("Number is " + number);
 Console.WriteLine("AnotherNumber is " + anotherNumber);
 
-var john = new Person { Name ="John", Age= 34};
+var john = new Person { Name = "John", Age = 34 };
 var person = john;
 //person.Age = 36;
 
-AddOneToNumber(number);
+AddOneToNumber(ref number);
 AddOneToPersonAge(john);
 Console.WriteLine("Number now is " + number);
 Console.WriteLine("Johns age now is " + john.Age);
@@ -19,20 +19,29 @@ Console.WriteLine("Johns age now is " + john.Age);
 Console.WriteLine("Johns age is " + john.Age);
 Console.WriteLine("Persons age is " + person.Age);
 
+int otherNumber = 15;
+MethodWithOutParameter(out otherNumber);
+Console.WriteLine("other number is " + otherNumber);
+
 Console.ReadKey();
 
-void AddOneToNumber(int number)
+//ref -> reference
+void AddOneToNumber(ref int number)
 {
     ++number;
 }
 
-void AddOneToPersonAge(Person person)
+void MethodWithOutParameter(out int number)
 {
-    ++person.Age;
+    number = 10;
 }
 
-class Person
+//void AddOneToPersonAge(Person person)
+//{
+//    ++person.Age;
+//}
+
+Person AddOneToPersonAge(Person person)
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
+    return new Person { Name = person.Name, Age = person.Age + 1 };
 }
