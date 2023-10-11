@@ -1,4 +1,6 @@
-﻿int number = 5;
+﻿using System.Collections;
+
+int number = 5;
 int anotherNumber = number;
 anotherNumber++;
 
@@ -33,6 +35,9 @@ IComparable<int> intAsComparable = number;
 object boxedNumber = number;
 // unboxing is converting boxed value back to the value type - explicitly
 int unboxNumber = (int)boxedNumber;
+
+var numbers1 = new List<int> { 1, 2, 3, 4, 5 };
+var numbers2 = new ArrayList { 1, 2, 3, 4, 5 }; // memory consuming zato sto mora raditi boxing operations on value types (ints)
 
 var variousObjects = new List<object>
 {
