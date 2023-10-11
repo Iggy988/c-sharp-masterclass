@@ -26,6 +26,14 @@ Console.WriteLine("other number is " + otherNumber);
 var list = new List<int> { 1,2,3,4};
 AddOneToList(ref list);
 
+
+IComparable<int> intAsComparable = number;
+// boxing - process of wrapping a value type into an instance of System.Object, which is reference type
+// boxing happens implicitly each time we assign a value type to an instance of reference type 
+object boxedNumber = number;
+// unboxing is converting boxed value back to the value type - explicitly
+int unboxNumber = (int)boxedNumber;
+
 var variousObjects = new List<object>
 {
     1,
@@ -37,7 +45,7 @@ var variousObjects = new List<object>
 
 foreach (object someObject in variousObjects)
 {
-    Console.WriteLine(someObject.GetType().DeclaringType);
+    Console.WriteLine(someObject.GetType().Name);
 }
 
 Console.ReadKey();
