@@ -26,6 +26,20 @@ Console.WriteLine("other number is " + otherNumber);
 var list = new List<int> { 1,2,3,4};
 AddOneToList(ref list);
 
+var variousObjects = new List<object>
+{
+    1,
+    1.5m,
+    new DateTime(2024, 6, 2),
+    "hello",
+    new Person{Name = "Iggy", Age = 25}
+};
+
+foreach (object someObject in variousObjects)
+{
+    Console.WriteLine(someObject.GetType().DeclaringType);
+}
+
 Console.ReadKey();
 
 //list is a class, so a reference type
