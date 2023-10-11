@@ -39,6 +39,8 @@ int unboxNumber = (int)boxedNumber;
 var numbers1 = new List<int> { 1, 2, 3, 4, 5 };
 var numbers2 = new ArrayList { 1, 2, 3, 4, 5 }; // memory consuming zato sto mora raditi boxing operations on value types (ints)
 
+var numbers3 = new List<IComparable<int>> { 1, 2, 3, 4, 5 }; // i ovdje se koristi boxing IComparable ref type
+
 var variousObjects = new List<object>
 {
     1,
@@ -52,6 +54,16 @@ foreach (object someObject in variousObjects)
 {
     Console.WriteLine(someObject.GetType().Name);
 }
+
+
+string userInput = Console.ReadLine();
+if(userInput == "Print person")
+{
+    Person person1 = new Person() { Name = "Iggy", Age = 27};
+    Console.WriteLine(person1.Name + " is " + person1.Age + " years old.");
+}
+
+GC.Collect(); //shouldn't be used in production, only for debugging
 
 Console.ReadKey();
 
