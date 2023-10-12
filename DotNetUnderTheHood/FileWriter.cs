@@ -4,7 +4,7 @@
     private readonly StreamWriter _streamWriter;
     public FileWriter(string filePath)
     {
-        _streamWriter = new StreamWriter(filePath, true);
+        _streamWriter = new StreamWriter(filePath, true); // append da li ce dodavati tekst ili ce override u file.txt
     }
     public void Write(string text)
     {

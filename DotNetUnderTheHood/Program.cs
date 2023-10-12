@@ -87,6 +87,13 @@ var writer = new FileWriter(filePath);
 writer.Write("Some text");
 writer.Write("Some other text");
 
+var reader = new SpecificLineFromTextFileReader(filePath);
+var third = reader.ReadLineNumber(3);
+var fourth = reader.ReadLineNumber(4);
+
+Console.WriteLine("The third line is "  + third);
+Console.WriteLine("The fourth line is "  + fourth);
+
 Console.ReadKey();
 
 //list is a class, so a reference type
