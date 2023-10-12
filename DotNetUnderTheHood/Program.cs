@@ -79,8 +79,13 @@ for (int i = 0; i < 5; ++i)
     var personIggy = new Person { Name = "IggyPop", Age = 40 };
 }
 
-GC.Collect(); //shouldn't be used in production, only for debugging
-Console.WriteLine("Ready to close.");
+//GC.Collect(); //shouldn't be used in production, only for debugging
+//Console.WriteLine("Ready to close.");
+
+const string filePath = "file.txt";
+var writer = new FileWriter(filePath);
+writer.Write("Some text");
+writer.Write("Some other text");
 
 Console.ReadKey();
 
