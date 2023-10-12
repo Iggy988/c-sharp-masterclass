@@ -65,6 +65,15 @@ if(userInput == "Print person")
 
 GC.Collect(); //shouldn't be used in production, only for debugging
 
+bool someCondition = true;
+if (someCondition)
+{
+    var someClassInstance = new SomeClass(); // uvijek ce biti reachable to _allExistingInstances - prouzrokuje memory leaks
+}
+
+
+Console.WriteLine("Count of all instances is now " + SomeClass.CountOfInstances);
+
 Console.ReadKey();
 
 //list is a class, so a reference type
@@ -92,4 +101,17 @@ void MethodWithOutParameter(out int number)
 Person AddOneToPersonAge(Person person)
 {
     return new Person { Name = person.Name, Age = person.Age + 1 };
+}
+
+
+public class SomeClass
+{
+    private static List<SomeClass> _allExistingInstances = new();
+
+    public static int CountOfInstances => _allExistingInstances.Count;
+
+    public SomeClass()
+    {
+        _allExistingInstances.Add(this);
+    }
 }
