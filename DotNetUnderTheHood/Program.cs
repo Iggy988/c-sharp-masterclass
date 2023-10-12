@@ -56,14 +56,14 @@ foreach (object someObject in variousObjects)
 }
 
 
-string userInput = Console.ReadLine();
-if(userInput == "Print person")
-{
-    Person person1 = new Person() { Name = "Iggy", Age = 27};
-    Console.WriteLine(person1.Name + " is " + person1.Age + " years old.");
-}
+//string userInput = Console.ReadLine();
+//if(userInput == "Print person")
+//{
+//    Person person1 = new Person() { Name = "Iggy", Age = 27};
+//    Console.WriteLine(person1.Name + " is " + person1.Age + " years old.");
+//}
 
-GC.Collect(); //shouldn't be used in production, only for debugging
+
 
 bool someCondition = true;
 if (someCondition)
@@ -73,6 +73,14 @@ if (someCondition)
 
 
 Console.WriteLine("Count of all instances is now " + SomeClass.CountOfInstances);
+
+for (int i = 0; i < 5; ++i)
+{
+    var personIggy = new Person { Name = "IggyPop", Age = 40 };
+}
+
+GC.Collect(); //shouldn't be used in production, only for debugging
+Console.WriteLine("Ready to close.");
 
 Console.ReadKey();
 
@@ -101,17 +109,4 @@ void MethodWithOutParameter(out int number)
 Person AddOneToPersonAge(Person person)
 {
     return new Person { Name = person.Name, Age = person.Age + 1 };
-}
-
-
-public class SomeClass
-{
-    private static List<SomeClass> _allExistingInstances = new();
-
-    public static int CountOfInstances => _allExistingInstances.Count;
-
-    public SomeClass()
-    {
-        _allExistingInstances.Add(this);
-    }
 }

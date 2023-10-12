@@ -1,15 +1,19 @@
 ﻿
-
-//person.Age = 36;
-
-
-//classes has references semantics
-// 2 variables can hold a reference to the same object
-
-
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Person
 {
     public string Name { get; init; }
     public int Age { get; init; }
+
+    //Finalizer/Destructor ~, always paramiterless
+    ~Person()
+    {
+        Console.WriteLine($"Person called {Name} is being destructed");
+    }
+
+    //protected override void Finalize() //-- do not override object.Finalize.Instead, provide a destructor.
+    //{
+    //    Console.WriteLine($"Person called {Name} is being destructed");
+    //}
 }
