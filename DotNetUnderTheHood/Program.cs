@@ -83,13 +83,19 @@ for (int i = 0; i < 5; ++i)
 //Console.WriteLine("Ready to close.");
 
 const string filePath = "file.txt";
-var writer = new FileWriter(filePath);
-writer.Write("Some text");
-writer.Write("Some other text");
-
-var reader = new SpecificLineFromTextFileReader(filePath);
+//koristimo using da automatski poziva Dispose method, da ne moramo mi pozivati
+using (var writer = new FileWriter(filePath)) 
+{
+    writer.Write("Some text");
+    writer.Write("Some other text");
+}
+//throws Exception, ne moze reach filePath zato sto je blocked by FileWriter koji koristi file - moramo koristiti IDisposable
+// moramo pozvati method
+//writer.Dispose();
+using var reader = new SpecificLineFromTextFileReader(filePath);
 var third = reader.ReadLineNumber(3);
 var fourth = reader.ReadLineNumber(4);
+//reader.Dispose();
 
 Console.WriteLine("The third line is "  + third);
 Console.WriteLine("The fourth line is "  + fourth);

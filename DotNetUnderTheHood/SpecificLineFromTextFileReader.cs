@@ -1,4 +1,4 @@
-﻿public class SpecificLineFromTextFileReader
+﻿public class SpecificLineFromTextFileReader : IDisposable
 {
     private readonly StreamReader _streamReader;
     public SpecificLineFromTextFileReader(string filePath)
@@ -6,6 +6,7 @@
         _streamReader = new StreamReader(filePath);
     }
 
+    
     public string ReadLineNumber(int lineNumber)
     {
         _streamReader.DiscardBufferedData(); //empties buffer of streamReader
@@ -17,4 +18,10 @@
         }
         return _streamReader.ReadLine();
     }
+
+    public void Dispose()
+    {
+        _streamReader.Dispose();
+    }
+
 }
