@@ -12,14 +12,12 @@ public class FastTableDataBuilder : ITableDataBuilder
 
         foreach (var row in csvData.Rows)
         {
-            //var newRowData = new Dictionary<string, object>();
-
             var newRow = new FastRow();
-
             for (int columnIndex = 0; columnIndex < csvData.Columns.Length; ++columnIndex)
             {
                 var column = csvData.Columns[columnIndex];
                 string valueAsString = row[columnIndex];
+
                 if (string.IsNullOrEmpty(valueAsString))
                 {
                     continue;
@@ -32,7 +30,8 @@ public class FastTableDataBuilder : ITableDataBuilder
                 {
                     newRow.AssignCell(column, false);
                 }
-                else if (valueAsString.Contains(".") && decimal.TryParse(valueAsString, out var valueAsDecimal))
+                else if (valueAsString.Contains(".")
+                    && decimal.TryParse(valueAsString, out var valueAsDecimal))
                 {
                     newRow.AssignCell(column, valueAsDecimal);
                 }
@@ -44,8 +43,6 @@ public class FastTableDataBuilder : ITableDataBuilder
                 {
                     newRow.AssignCell(column, valueAsString);
                 }
-                
-
             }
 
             resultRows.Add(newRow);
