@@ -61,7 +61,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSVProcessingApp", "CSVProc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced C#", "Advanced C#", "{9169D00C-F73E-438C-8D13-85BCF36C1428}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionExample", "ReflectionExample\ReflectionExample.csproj", "{B0F5910F-A3A0-4EED-BA30-3D7981FFFD8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReflectionExample", "ReflectionExample\ReflectionExample.csproj", "{B0F5910F-A3A0-4EED-BA30-3D7981FFFD8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributesExample", "Attributes\AttributesExample.csproj", "{6457F318-2967-49EA-A35A-E6E4143D7594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -157,6 +159,10 @@ Global
 		{B0F5910F-A3A0-4EED-BA30-3D7981FFFD8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0F5910F-A3A0-4EED-BA30-3D7981FFFD8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0F5910F-A3A0-4EED-BA30-3D7981FFFD8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6457F318-2967-49EA-A35A-E6E4143D7594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6457F318-2967-49EA-A35A-E6E4143D7594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6457F318-2967-49EA-A35A-E6E4143D7594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6457F318-2967-49EA-A35A-E6E4143D7594}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +190,7 @@ Global
 		{D988575E-BC55-471F-990F-98BAC529B6AA} = {C46DE4FA-00B6-4C8D-8703-F61D2A8707FD}
 		{06E59899-1132-4432-82B8-AFA6E99F7B34} = {C46DE4FA-00B6-4C8D-8703-F61D2A8707FD}
 		{B0F5910F-A3A0-4EED-BA30-3D7981FFFD8E} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
+		{6457F318-2967-49EA-A35A-E6E4143D7594} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
