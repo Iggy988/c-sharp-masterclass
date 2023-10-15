@@ -76,3 +76,19 @@ class Validator
         
     }
 }
+
+[SomeAttribute(new int[] { 1,2,3})] // ne moze class
+public class SomeClass
+{
+
+}
+
+public class SomeAttribute : Attribute
+{
+    public int[] Numbers { get; }
+
+    public SomeAttribute(int[] numbers)
+    {
+        Numbers = numbers;
+    }
+}
