@@ -3,11 +3,15 @@
 Person nullPerson = null;
 
 var point = new Point(1, 3);
+
+MoveToRightBy1Unit(ref point); // nece isto raditi kao kod dole, osim ako ne ubacimo ref
+point.X++; //move to right by 1
+
 var point2 = new Point(); // structs has always parameterless constructor
 //Person person = new Person(); // moramo unijeti parametre
 
 var anotherPoint = point;
-anotherPoint.Y = 100;
+//anotherPoint.Y = 100;
 
 Console.WriteLine(point);
 Console.WriteLine(anotherPoint);
@@ -21,7 +25,15 @@ var fishyStruct2 = fishyStruct1;
 
 fishyStruct2.Numbers.Clear();
 
+var dateTime = new DateTime(2023, 12, 3);
+dateTime.AddDays(1);
+
 Console.ReadKey();
+
+void MoveToRightBy1Unit(ref Point point)
+{
+    point.X++;
+}
 
 void SomeMethod<T>(T param) where T: struct
 {
@@ -40,7 +52,7 @@ struct Point : IComparable<Point> // can inherit Interface
 
     // structs cant have virtual or abstract methods
     public int X { get; set; }
-    public int Y { get; set; }
+    public int Y { get; init; } //struct should be immutable
 
     public Point(int x, int y)
     {
