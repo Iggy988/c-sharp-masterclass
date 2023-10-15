@@ -16,7 +16,10 @@ SomeMethod(5); //value type
 //SomeMethod(new Person()); // ne moze reference type
 
 
+var fishyStruct1 = new FishyStruct { Numbers = new List<int> { 1,2,3} };
+var fishyStruct2 = fishyStruct1;
 
+fishyStruct2.Numbers.Clear();
 
 Console.ReadKey();
 
@@ -25,10 +28,15 @@ void SomeMethod<T>(T param) where T: struct
 
 }
 
+struct FishyStruct
+{
+    public List<int> Numbers { get; init; }
+}
+
 struct Point : IComparable<Point> // can inherit Interface
 {
 
-    public Point ClosestPoint { get; } //cannot have property of same type- cnnot contain a cycle in its definition
+    //public Point ClosestPoint { get; } //cannot have property of same type- cnnot contain a cycle in its definition -stored at stack as value data type
 
     // structs cant have virtual or abstract methods
     public int X { get; set; }
@@ -63,6 +71,8 @@ struct Point : IComparable<Point> // can inherit Interface
 
 class Person
 {
+    public Person ColssetsPerson { get; } //cycle in its definition -same type property
+
     private Point _favoritePoint; // ako nije assigned bice X: 0 Y: 0 - nije nullable
     private Person _favoritePerson; // ako nije assigned bice null
     public int Id { get; init; }
