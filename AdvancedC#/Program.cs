@@ -2,6 +2,9 @@
 var john = new Person(1, "John");
 var theSameAsJohn = new Person(1, "John");
 var marie = new Person(2, "Marie");
+//Console.WriteLine(object.ReferenceEquals(1,1));   
+//Console.WriteLine(object.ReferenceEquals(null,null));   
+Console.WriteLine("Are reference equals? " + object.ReferenceEquals(john, theSameAsJohn));
 
 Console.WriteLine("1.Equals(1): " + 1.Equals(1));
 Console.WriteLine("1.Equals(2): " + 1.Equals(2));
@@ -19,7 +22,7 @@ Console.WriteLine("john.Equals(null): " + john.Equals(null));
 
 var point1 = new Point(1, 2);
 var point2 = new Point(1, 2);
-Console.WriteLine("point1.Equals(point2): "+point1.Equals(point2));
+Console.WriteLine("point1.Equals(point2): "+point1.Equals(point2)); //value types
 
 
 Console.ReadKey();

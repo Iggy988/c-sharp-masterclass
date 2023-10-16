@@ -1,10 +1,5 @@
 ﻿
-
-
-
-
-
-
+using System.Diagnostics.CodeAnalysis;
 
 readonly struct Point : IComparable<Point> // can inherit Interface
 {
@@ -37,6 +32,15 @@ readonly struct Point : IComparable<Point> // can inherit Interface
     {
         throw new NotImplementedException();
     }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Point point &&
+               X == point.X &&
+               Y == point.Y;
+    }
+
+
 
     //~Finalizer(){ } //cannot have finalizer
 }
