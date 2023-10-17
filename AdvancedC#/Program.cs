@@ -43,6 +43,16 @@ decimal someDecimal = 20.01M;
 int someInt = (int)someDecimal;
 
 var tuple = Tuple.Create(10, 20);
-Point point = (Point)tuple; // moramo ubaciti nas implicit conversion
+//Point point = (Point)tuple; // moramo ubaciti nas implicit conversion
+Point point = tuple; // moramo ubaciti nas implicit conversion
+
+
+var hash1 = 324.GetHashCode();
+var hash2 = "abc".GetHashCode();
+Console.WriteLine(hash1);
+Console.WriteLine(hash2);
+
+var dictionary = new Dictionary<Point, string>();
+dictionary[new Point(10, 20)] = "abc";
 
 Console.ReadKey();

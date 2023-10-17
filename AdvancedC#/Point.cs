@@ -57,8 +57,8 @@ readonly struct Point : IEquatable<Point>, IComparable<Point> // can inherit Int
     public static bool operator !=(Point a, Point b) => !a.Equals(b);
 
     //implicit conversion operator, target type is Point, source type is Tuple<int, int>
-    //public static implicit operator Point(Tuple<int, int> tuple) => new Point(tuple.Item1, tuple.Item2);
-    public static explicit operator Point(Tuple<int, int> tuple) => new Point(tuple.Item1, tuple.Item2);
+    public static implicit operator Point(Tuple<int, int> tuple) => new Point(tuple.Item1, tuple.Item2);
+    //public static explicit operator Point(Tuple<int, int> tuple) => new Point(tuple.Item1, tuple.Item2);
 
     //~Finalizer(){ } //cannot have finalizer
 }
