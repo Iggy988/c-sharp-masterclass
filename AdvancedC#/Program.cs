@@ -33,4 +33,16 @@ var added = point1 + point2;
 
 var addedd = point1.Add(point2);
 
+int tenAsInt = 10;
+//conversion operator is overrloaded
+//implicit conversion, dasnt require any sintax, it is safe
+decimal tenAsDecimal = tenAsInt;
+
+decimal someDecimal = 20.01M;
+//Explisit conversion, we know or risk of losing some data
+int someInt = (int)someDecimal;
+
+var tuple = Tuple.Create(10, 20);
+Point point = (Point)tuple; // moramo ubaciti nas implicit conversion
+
 Console.ReadKey();
