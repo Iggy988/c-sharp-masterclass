@@ -55,4 +55,22 @@ Console.WriteLine(hash2);
 var dictionary = new Dictionary<Point, string>();
 dictionary[new Point(10, 20)] = "abc";
 
+var dictionary2 = new Dictionary<Person, int>();
+var martin = new Person(6, "Martin");
+dictionary2[martin] = 5;
+var theSameAsMarthin = new Person(6, "Martin");
+Console.WriteLine(martin.GetHashCode());
+Console.WriteLine(theSameAsMarthin.GetHashCode());
+//Console.WriteLine(dictionary2[theSameAsMarthin]);
+
+
+var dictionary3 = new Dictionary<Point, int>();
+var point3 = new Point(10, 20);
+dictionary3[point3] = 99;
+var point4 = new Point(10, 20);
+Console.WriteLine(dictionary3[point3]);
+Console.WriteLine(point3.GetHashCode());
+Console.WriteLine(point4.GetHashCode());
+
+
 Console.ReadKey();
