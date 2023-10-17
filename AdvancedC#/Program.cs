@@ -25,4 +25,12 @@ var point2 = new Point(1, 2);
 Console.WriteLine("point1.Equals(point2): "+point1.Equals(point2)); //value types
 
 
+Console.WriteLine("point1 == point2 " + (point1 == point2)); 
+Console.WriteLine("point1 != point2 " + (point1 != point2)); 
+Console.WriteLine("1 == 1" + (1 == 1));
+
+var added = point1 + point2;
+
+var addedd = point1.Add(point2);
+
 Console.ReadKey();
