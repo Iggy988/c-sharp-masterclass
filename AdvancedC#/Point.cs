@@ -1,7 +1,7 @@
 ﻿
 using System.Diagnostics.CodeAnalysis;
 
-readonly struct Point : IComparable<Point> // can inherit Interface
+readonly struct Point : IEquatable<Point>, IComparable<Point> // can inherit Interface
 {
 
     //public Point ClosestPoint { get; } //cannot have property of same type- cnnot contain a cycle in its definition -stored at stack as value data type
@@ -28,6 +28,11 @@ readonly struct Point : IComparable<Point> // can inherit Interface
         return "X: " + X + ", Y: " + Y;
     }
 
+    public bool Equals(Point other)
+    {
+        return X == other.X && Y == other.Y;
+    }
+
     public int CompareTo(Point other)
     {
         throw new NotImplementedException();
@@ -36,10 +41,10 @@ readonly struct Point : IComparable<Point> // can inherit Interface
     public override bool Equals(object? obj)
     {
         return obj is Point point &&
-               X == point.X &&
-               Y == point.Y;
+               //X == point.X &&
+               //Y == point.Y;
+               Equals(point);
     }
-
 
 
     //~Finalizer(){ } //cannot have finalizer
