@@ -85,6 +85,11 @@ Console.WriteLine(tuple3.GetHashCode());
 
 
 var valueTuple1 = new ValueTuple<int, string>(1, "bbb");
-var valueTuple2 = (5, "ccc");
+var valueTuple2 = (Number: 5, Text: "ccc");
+valueTuple2.Item1 = 30;// ValueTuples are mutable
+valueTuple2.Text = "ddd";
+
+
+
 
 Console.ReadKey();
