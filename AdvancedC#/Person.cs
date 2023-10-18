@@ -1,11 +1,4 @@
 ﻿
-
-
-
-
-
-
-
 class Person
 {
     public int Id { get; init; }
@@ -27,4 +20,7 @@ class Person
     {
         return Id;
     }
+
+    
 }
+

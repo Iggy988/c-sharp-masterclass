@@ -44,6 +44,11 @@ readonly struct Point : IEquatable<Point>, IComparable<Point> // can inherit Int
                //Y == point.Y;
                Equals(point);
     }
+    public override int GetHashCode()
+    {
+        // takes any two objects and combines their hashCodes
+        return HashCode.Combine(X, Y);
+    }
 
     public Point Add(Point point2) => new Point(X + point2.X, Y + point2.Y);
 

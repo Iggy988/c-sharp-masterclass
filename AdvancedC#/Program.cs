@@ -73,4 +73,18 @@ Console.WriteLine(point3.GetHashCode());
 Console.WriteLine(point4.GetHashCode());
 
 
+var tuple1 = new Tuple<string, bool>("aaa", false);
+var tuple2 = Tuple.Create(10, true);
+var tuple3 = Tuple.Create(10, true);
+var number = tuple2.Item1;
+//tuple2.Item1 = 23; // ne moze zato sto je setter read only
+Console.WriteLine(tuple2 == tuple3);
+Console.WriteLine(tuple2 == tuple3);
+Console.WriteLine(tuple2.Equals(tuple3));
+Console.WriteLine(tuple3.GetHashCode());
+
+
+var valueTuple1 = new ValueTuple<int, string>(1, "bbb");
+var valueTuple2 = (5, "ccc");
+
 Console.ReadKey();
