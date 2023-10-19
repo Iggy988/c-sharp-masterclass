@@ -2,10 +2,27 @@
 var weatherData = new WeatherData(25.1M, 65);
 Console.WriteLine(weatherData);
 
+var warmerWeatherData = weatherData with { Temperatue = 30 };
+
+var rectangle = new Rectangle(12, 20);
+//rectangle.A = 15; //mutable , if put readonly it will  be immutable
+
 Console.ReadKey();
 
 public record WeatherData(decimal Temperatue, int Humidity);
 
+public readonly record struct Rectangle(int A, int B);
+
+public record WeatherDataNonPositionalRecord
+{
+    public decimal Temperature { get; set; }
+    public int Humidity { get; }
+    public WeatherDataNonPositionalRecord(decimal temperature, int humidity)
+    {
+        Temperature = temperature;
+        Humidity = humidity;
+    }
+}
 
 public class WeatherDataClass : IEquatable<WeatherDataClass?>
 {
