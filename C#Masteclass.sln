@@ -67,7 +67,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttributesExample", "Attrib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StructsExample", "StructsExample\StructsExample.csproj", "{0B9969B3-AB57-4B9D-84C7-B338DB64EDE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedC#", "AdvancedC#\AdvancedC#.csproj", "{EBD42BE0-E886-4522-BB94-1E627E50321C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedC#", "AdvancedC#\AdvancedC#.csproj", "{EBD42BE0-E886-4522-BB94-1E627E50321C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordsExample", "RecordsExample\RecordsExample.csproj", "{E043550A-3B9E-4893-BE93-97617E7DCE79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -175,6 +177,10 @@ Global
 		{EBD42BE0-E886-4522-BB94-1E627E50321C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD42BE0-E886-4522-BB94-1E627E50321C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBD42BE0-E886-4522-BB94-1E627E50321C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E043550A-3B9E-4893-BE93-97617E7DCE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E043550A-3B9E-4893-BE93-97617E7DCE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E043550A-3B9E-4893-BE93-97617E7DCE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E043550A-3B9E-4893-BE93-97617E7DCE79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -205,6 +211,7 @@ Global
 		{6457F318-2967-49EA-A35A-E6E4143D7594} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 		{0B9969B3-AB57-4B9D-84C7-B338DB64EDE7} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 		{EBD42BE0-E886-4522-BB94-1E627E50321C} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
+		{E043550A-3B9E-4893-BE93-97617E7DCE79} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
