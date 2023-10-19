@@ -90,6 +90,35 @@ valueTuple2.Item1 = 30;// ValueTuples are mutable
 valueTuple2.Text = "ddd";
 
 
+//Nullable value types
+//int numberNull = null;
+string text = null;
 
+int? numberOrNull = null;
+Nullable<bool> boolOrNull = true;
+//Nullable<string> stringOrNull = null; // ne moze reference type
+
+//int numbers2 = numberOrNull.Value; //nullable ints and int are not the same value, we must unpack it
+if (numberOrNull.HasValue)
+{
+    Console.WriteLine("not null");
+}
+
+if (boolOrNull is not null)
+{
+    var someBool = boolOrNull.Value;
+    Console.WriteLine(someBool);
+}
+
+var heights = new List<Nullable<int>>
+{
+    160, null, 190, null, 170
+};
+
+var averageHeight = heights
+    .Where(h => h is not null)
+    .Average();
+
+Console.WriteLine("Average height is "+ averageHeight);
 
 Console.ReadKey();
