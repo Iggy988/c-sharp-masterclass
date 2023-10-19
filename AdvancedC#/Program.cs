@@ -117,8 +117,30 @@ var heights = new List<Nullable<int>>
 
 var averageHeight = heights
     .Where(h => h is not null)
-    .Average();
+    .Average(); // Average method will not include null
 
 Console.WriteLine("Average height is "+ averageHeight);
 
+
+string? stringNullableString = null;
+
 Console.ReadKey();
+
+//Nullable reference types
+static int GetLenght(string? nullableText)
+{
+    if (nullableText is null)
+    {
+        return 0;
+    }
+    return nullableText.Length;
+}
+
+string FormatHousesData(IEnumerable<House> houses)
+{
+    return string.Join("\n",
+        houses.Select(house =>
+        $"Owner is {house.OwnerName}, " +
+        $"address is {house.Address.Number} " +
+        $"{house.Address.Street}"));
+}
