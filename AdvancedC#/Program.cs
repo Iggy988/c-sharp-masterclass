@@ -126,6 +126,13 @@ string? stringNullableString = null;
 
 Console.ReadKey();
 
+
+void OddClassInit_ShallThrowExceptionWhenGivenNull()
+{
+    //validate this line throws an exception
+    new OddClass().Init(null!);
+}
+
 //Nullable reference types
 static int GetLenght(string? nullableText)
 {
