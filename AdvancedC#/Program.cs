@@ -124,7 +124,20 @@ Console.WriteLine("Average height is "+ averageHeight);
 
 string? stringNullableString = null;
 
+//preprocesor directive
+#nullable disable
+string textDisabledNull = null;
+
+#nullable enable
+string textEnableNull = null;
+SomeMethod(new Person(3, "Name"));
+
 Console.ReadKey();
+
+void SomeMethod<T>(T input) where T : Person?
+{
+
+}
 
 
 void OddClassInit_ShallThrowExceptionWhenGivenNull()
