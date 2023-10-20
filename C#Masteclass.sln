@@ -69,7 +69,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StructsExample", "StructsEx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedC#", "AdvancedC#\AdvancedC#.csproj", "{EBD42BE0-E886-4522-BB94-1E627E50321C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordsExample", "RecordsExample\RecordsExample.csproj", "{E043550A-3B9E-4893-BE93-97617E7DCE79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordsExample", "RecordsExample\RecordsExample.csproj", "{E043550A-3B9E-4893-BE93-97617E7DCE79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Example", "API_Example\API_Example.csproj", "{D05C87E0-C9FB-4C43-9E54-5DFF062D0C00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -181,6 +183,10 @@ Global
 		{E043550A-3B9E-4893-BE93-97617E7DCE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E043550A-3B9E-4893-BE93-97617E7DCE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E043550A-3B9E-4893-BE93-97617E7DCE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D05C87E0-C9FB-4C43-9E54-5DFF062D0C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05C87E0-C9FB-4C43-9E54-5DFF062D0C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05C87E0-C9FB-4C43-9E54-5DFF062D0C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05C87E0-C9FB-4C43-9E54-5DFF062D0C00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -212,6 +218,7 @@ Global
 		{0B9969B3-AB57-4B9D-84C7-B338DB64EDE7} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 		{EBD42BE0-E886-4522-BB94-1E627E50321C} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 		{E043550A-3B9E-4893-BE93-97617E7DCE79} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
+		{D05C87E0-C9FB-4C43-9E54-5DFF062D0C00} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
