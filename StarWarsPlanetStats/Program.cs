@@ -55,8 +55,46 @@ internal class StarWarsPlanetsStatsApp
         {
             Console.WriteLine(planet);
         }
+        Console.WriteLine();
+        Console.WriteLine("The statistic of which property you like to see?");
+        Console.WriteLine("population");
+        Console.WriteLine("diameter");
+        Console.WriteLine("surface water");
 
+        var userChoice = Console.ReadLine();
+        if (userChoice == "population")
+        {
+            //var planetWithMaxPopulation = planets.MaxBy(p => p.Population);
+            //Console.WriteLine("Max population is: " + planetWithMaxPopulation.Population + " planet: "+ planetWithMaxPopulation.Name);
+
+            //var planetWithMinPopulation = planets.MinBy(p => p.Population);
+            //Console.WriteLine("Min population is: " + planetWithMinPopulation.Population + " planet: " + planetWithMinPopulation.Name);
+
+            ShowStatistics(planets, "population", p => p.Population);
+        }
+        else if (userChoice == "diameter")
+        {
+            ShowStatistics(planets, "diameter", p => p.Diameter);
+        }
+        else if (userChoice == "surface water")
+        {
+            ShowStatistics(planets, "surface water", p => p.SurfaceWater);
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice");
+        }
     }
+
+    private void ShowStatistics(IEnumerable<Planet> planets, string propertyName, Func<Planet, int?> propertySelector)
+    {
+        var planetWithMaxProperty = planets.MaxBy(propertySelector);
+        Console.WriteLine($"Max {propertyName} is: {propertySelector(planetWithMaxProperty)} planet:  {planetWithMaxProperty.Name}");
+
+        var planetWithMinProperty = planets.MinBy(propertySelector);
+        Console.WriteLine($"Min {propertyName} is: {propertySelector(planetWithMinProperty)} planet:  {planetWithMinProperty.Name}");
+    }
+
 
     private IEnumerable<Planet> ToPlanets(Root? root)
     {
