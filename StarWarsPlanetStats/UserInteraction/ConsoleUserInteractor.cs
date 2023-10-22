@@ -9,4 +9,10 @@
     {
         Console.WriteLine(message);
     }
+
+    public void PrintTable<T>(IEnumerable<T> items)
+    {
+        TablePrinter.Print(items);
+    }
+
 }
