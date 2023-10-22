@@ -1,14 +1,19 @@
-﻿internal class StarWarsPlanetsStatsApp
+﻿using StarWarsPlanetStats.DataAccess;
+using StarWarsPlanetStats.UserInteraction;
+
+public class StarWarsPlanetsStatsApp
 {
-    //Dependency inversion - classes should depend on abstraction
     private readonly IPlanetsReader _planetsReader;
     private readonly IPlanetsStatisticsAnalyzer _planetsStatisticsAnalyzer;
     private readonly IPlanetsStatsUserInteractor _planetsStatsUserInteractor;
 
-    public StarWarsPlanetsStatsApp(IPlanetsReader planetsReader, IPlanetsStatisticsAnalyzer planetsStatisticsAnalyzer, IPlanetsStatsUserInteractor planetsStatsUserInteractor)
+    public StarWarsPlanetsStatsApp(
+        IPlanetsReader planetsReader,
+        IPlanetsStatisticsAnalyzer planetsStaticticsAnalyzer,
+        IPlanetsStatsUserInteractor planetsStatsUserInteractor)
     {
         _planetsReader = planetsReader;
-        _planetsStatisticsAnalyzer = planetsStatisticsAnalyzer;
+        _planetsStatisticsAnalyzer = planetsStaticticsAnalyzer;
         _planetsStatsUserInteractor = planetsStatsUserInteractor;
     }
 
@@ -20,5 +25,4 @@
 
         _planetsStatisticsAnalyzer.Analyze(planets);
     }
-
 }

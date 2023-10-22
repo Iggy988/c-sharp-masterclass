@@ -1,9 +1,17 @@
-﻿public static class StringExtension
+﻿public static class StringExtensions
 {
-    //extension method
     public static int? ToIntOrNull(this string? input)
     {
-        return int.TryParse(input, out int resultParsed) ? resultParsed : null;
+        return int.TryParse(input, out int resultParsed) ?
+            resultParsed :
+            null;
+    }
+
+    public static long? ToLongOrNull(this string? input)
+    {
+        return long.TryParse(input, out long resultParsed) ?
+            resultParsed :
+            null;
     }
 }
 
