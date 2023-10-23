@@ -6,11 +6,12 @@
 //{
 //    Console.WriteLine(c);
 //}
-var customCollection = new CustomCollection(new string[] { "aaa", "bbb", "ccc" });
+IEnumerable customCollection = new CustomCollection(new string[] { "aaa", "bbb", "ccc" });
 foreach (var w in customCollection)
 {
     Console.WriteLine(w);
 }
+var enumerator = customCollection.GetEnumerator();
 
 //var words = new string[] { "aaa", "bbb", "ccc" };
 //foreach (var word in words ) Console.WriteLine( word );
@@ -25,7 +26,7 @@ foreach (var w in customCollection)
 
 Console.ReadKey();
 
-public class CustomCollection : IEnumerable
+public class CustomCollection : IEnumerable<string>
 {
     public string[] Words { get;  }
 
@@ -34,9 +35,15 @@ public class CustomCollection : IEnumerable
         Words = words;
     }
 
-    public IEnumerator GetEnumerator()
+    IEnumerator IEnumerable.GetEnumerator() //explicit
     {
         return new WordEnumerator(Words);
+    }
+
+    public IEnumerator<string> GetEnumerator()// Implicit
+    {
+        //return new WordEnumerator(Words);
+        throw new NotImplementedException();
     }
 }
 
