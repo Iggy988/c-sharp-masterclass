@@ -6,7 +6,7 @@
 //{
 //    Console.WriteLine(c);
 //}
-IEnumerable customCollection = new CustomCollection(new string[] { "aaa", "bbb", "ccc" });
+var customCollection = new CustomCollection(new string[] { "aaa", "bbb", "ccc" });
 foreach (var w in customCollection)
 {
     Console.WriteLine(w);
@@ -35,19 +35,19 @@ public class CustomCollection : IEnumerable<string>
         Words = words;
     }
 
+    //this method returns Generic IEnumerator<T>
     IEnumerator IEnumerable.GetEnumerator() //explicit
     {
-        return new WordEnumerator(Words);
+        return GetEnumerator();
     }
 
     public IEnumerator<string> GetEnumerator()// Implicit
     {
-        //return new WordEnumerator(Words);
-        throw new NotImplementedException();
+        return new WordEnumerator(Words);
     }
 }
 
-public class WordEnumerator : IEnumerator
+public class WordEnumerator : IEnumerator<string>
 {
     //moramo staviti pocetnu poziciju na -1 jer kad budemo pozivali bice 0 na prvoj exekuciji metode MoveNext()
     private const int InitialPosition = -1; 
@@ -59,7 +59,9 @@ public class WordEnumerator : IEnumerator
         _words = words;
     }
 
-    public object Current
+    object IEnumerator.Current => Current;
+
+    public string Current
     {
         get
         {
@@ -85,5 +87,10 @@ public class WordEnumerator : IEnumerator
     public void Reset()
     {
         _currentPosition = InitialPosition;
+    }
+
+    public void Dispose()
+    {
+
     }
 }
