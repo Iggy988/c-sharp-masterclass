@@ -24,6 +24,9 @@ var enumerator = customCollection.GetEnumerator();
 //    Console.WriteLine( currentWord );
 //}
 
+//Indexer
+customCollection[1] = "abc";
+
 Console.ReadKey();
 
 public class CustomCollection : IEnumerable<string>
@@ -33,6 +36,13 @@ public class CustomCollection : IEnumerable<string>
     public CustomCollection(string[] words)
     {
         Words = words;
+    }
+
+    //indexer
+    public string this[int index]
+    {
+        get => Words[index];
+        set => Words[index] = value;
     }
 
     //this method returns Generic IEnumerator<T>
