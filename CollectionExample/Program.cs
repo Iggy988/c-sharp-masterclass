@@ -33,6 +33,12 @@ var newCollection = new CustomCollection
     "one", "two", "three"
 };
 
+var numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
+var array = new int[10];
+numbers.CopyTo(array, 2);
+
+var numbers2 = new List<int>(new int[] { 1, 2, 3, });
+
 Console.ReadKey();
 
 public class CustomCollection : IEnumerable<string>
