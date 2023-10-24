@@ -49,6 +49,7 @@ arrayCollection.Add(3); //collection is not fixed size
 
 Console.ReadKey();
 
+
 public class CustomCollection : IEnumerable<string>
 {
     public string[] Words { get; }

@@ -77,7 +77,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsPlanetStats", "Star
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Collections", "Collections", "{A888594A-3C96-4163-915D-09B76365842E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionExample", "CollectionExample\CollectionExample.csproj", "{E32C3A74-444E-42CF-867D-613074222E49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionExample", "CollectionExample\CollectionExample.csproj", "{E32C3A74-444E-42CF-867D-613074222E49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionExample2", "CollectionExample2\CollectionExample2.csproj", "{70022102-C04C-4A88-9912-255A164B8542}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -201,6 +203,10 @@ Global
 		{E32C3A74-444E-42CF-867D-613074222E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E32C3A74-444E-42CF-867D-613074222E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E32C3A74-444E-42CF-867D-613074222E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70022102-C04C-4A88-9912-255A164B8542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70022102-C04C-4A88-9912-255A164B8542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70022102-C04C-4A88-9912-255A164B8542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70022102-C04C-4A88-9912-255A164B8542}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -235,6 +241,7 @@ Global
 		{D05C87E0-C9FB-4C43-9E54-5DFF062D0C00} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 		{BBA9A5A7-2D48-4FDA-AD14-4B1D63DF70CB} = {9169D00C-F73E-438C-8D13-85BCF36C1428}
 		{E32C3A74-444E-42CF-867D-613074222E49} = {A888594A-3C96-4163-915D-09B76365842E}
+		{70022102-C04C-4A88-9912-255A164B8542} = {A888594A-3C96-4163-915D-09B76365842E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
