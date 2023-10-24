@@ -39,6 +39,14 @@ numbers.CopyTo(array, 2);
 
 var numbers2 = new List<int>(new int[] { 1, 2, 3, });
 
+//using reflection to see what interfaces array implements
+var array2 = new int[] { 1,2,3,4};
+var implementedInterfaces = array2.GetType().GetInterfaces();
+
+ICollection<int> arrayCollection = array2;
+//array2.Add(3);
+arrayCollection.Add(3); //collection is not fixed size
+
 Console.ReadKey();
 
 public class CustomCollection : IEnumerable<string>
