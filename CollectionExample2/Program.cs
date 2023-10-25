@@ -21,6 +21,19 @@ var readonlyDic = new ReadOnlyDictionary<string, int>(dictionary);
 Console.ReadKey();
 
 
+//Big O Notation
+bool Contains<T>(T itemToCheck, IEnumerable<T> input)
+{
+    foreach (var item in input)
+    {
+        if (item.Equals(itemToCheck))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 IEnumerable<string> ReadPlanets()
 {
     var result = new List<string>
