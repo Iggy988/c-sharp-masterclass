@@ -1,6 +1,7 @@
 ﻿
 //readonly collection
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 var planets = ReadPlanets();
 //var asList = (List<string>)planets;
@@ -25,6 +26,25 @@ var indexof11 = sortedList.FindIndexInSorted(11);
 var indexOf12 = sortedList.FindIndexInSorted(12);
 var indexOf18 = sortedList.FindIndexInSorted(18);
 var indexOf13 = sortedList.FindIndexInSorted(13);
+
+
+var input = Enumerable.Range(0, 100_000_000).ToArray();
+
+Stopwatch stopwatch = Stopwatch.StartNew();
+// improving performance list.Lenght -kad znamo koliko elementa ima
+var list = new List<int>(input.Length);
+foreach (var item in input)
+{
+    list.Add(item);
+} 
+
+stopwatch.Stop();
+Console.WriteLine($"Took: {stopwatch.ElapsedMilliseconds} ms");
+
+list.Clear();
+list.TrimExcess();
+
+list.AddRange(input);
 
 Console.ReadKey();
 
