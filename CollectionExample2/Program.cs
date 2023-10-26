@@ -46,6 +46,17 @@ list.TrimExcess();
 
 list.AddRange(input);
 
+list.RemoveRange(5, 10);
+list.RemoveAt(7); //O(N)
+list.Remove(99);
+
+//Linked List
+var linkedList = new LinkedList<int>();
+linkedList.AddFirst(1);
+linkedList.AddLast(2);
+linkedList.AddLast(3);
+linkedList.Remove(2);
+
 Console.ReadKey();
 
 
