@@ -96,6 +96,11 @@ var top = stack.Pop();
 var secondToTop = stack.Peek();
 
 
+//params
+//Console.WriteLine(Calculator.Add(new int[] { 1,2,3}));
+//Console.WriteLine(Calculator.Add(new int[] { 1,2,3}));
+Console.WriteLine(Calculator.Add(1,2,3));
+
 Console.ReadKey();
 
 
@@ -121,4 +126,15 @@ IEnumerable<string> ReadPlanets()
         "Pluto"
     };    
     return new ReadOnlyCollection<string>(result) ;  
+}
+
+
+//params
+public static class Calculator
+{
+    public static int Add(params int[] numbers) => numbers.Sum();
+    //public static int Add(IEnumerable<int> numbers) => numbers.Sum();
+    //public static int Add(int a, int b) => a + b;
+    //public static int Add(int a, int b, int c) => a + b + c;
+    //public static int Add(int a, int b, int c, int d) => a + b + c + d;
 }
