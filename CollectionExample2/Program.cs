@@ -85,6 +85,17 @@ prioretyQueue.Enqueue("d", 3);
 var firstPriority = prioretyQueue.Dequeue();
 
 
+//the Stack
+var stack = new Stack<string>();
+stack.Push("a");
+stack.Push("b");
+stack.Push("c");
+stack.Push("d");
+
+var top = stack.Pop();
+var secondToTop = stack.Peek();
+
+
 Console.ReadKey();
 
 
