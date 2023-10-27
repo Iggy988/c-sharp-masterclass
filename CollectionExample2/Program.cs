@@ -64,10 +64,28 @@ hashSet.Add("a");
 hashSet.Add("b");
 hashSet.Add("c");
 
+
+//Queues
+var queue = new Queue<string>();
+queue.Enqueue("a");
+queue.Enqueue("b");
+queue.Enqueue("c");
+queue.Enqueue("d");
+
+var first = queue.Dequeue();
+var second = queue.Peek();   
+
+//smaller priority number higher priorety
+var prioretyQueue = new PriorityQueue<string, int>();
+prioretyQueue.Enqueue("a", 5);
+prioretyQueue.Enqueue("b", 5);
+prioretyQueue.Enqueue("c", 2);
+prioretyQueue.Enqueue("d", 3);
+
+var firstPriority = prioretyQueue.Dequeue();
+
+
 Console.ReadKey();
-
-
-
 
 
 //Big O Notation
