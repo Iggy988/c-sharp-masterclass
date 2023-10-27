@@ -57,7 +57,16 @@ linkedList.AddLast(2);
 linkedList.AddLast(3);
 linkedList.Remove(2);
 
+
+//Hash Set
+var hashSet = new HashSet<string>();
+hashSet.Add("a");
+hashSet.Add("b");
+hashSet.Add("c");
+
 Console.ReadKey();
+
+
 
 
 
@@ -83,33 +92,4 @@ IEnumerable<string> ReadPlanets()
         "Pluto"
     };    
     return new ReadOnlyCollection<string>(result) ;  
-}
-
-public static class ListExtension
-{
-    //Binary search
-    public static int? FindIndexInSorted<T>(this IList<T> list, T itemToFind) where T : IComparable<T>
-    {
-        int leftBound = 0;
-        int rightBound = list.Count -1;
-
-        while(leftBound <= rightBound) 
-        {
-            int middleIndex = (leftBound + rightBound) / 2;
-            if (itemToFind.Equals(list[middleIndex]))
-            {
-                return middleIndex;
-            }
-            else if (itemToFind.CompareTo(list[middleIndex]) < 0)
-            {
-                rightBound = middleIndex - 1;
-            }
-            else
-            {
-                leftBound = middleIndex + 1;
-            }
-
-        }
-        return null;
-    }
 }
