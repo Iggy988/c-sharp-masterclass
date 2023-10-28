@@ -46,6 +46,12 @@ foreach (var item in GetBeforeFirstNegative(numbers))
 	Console.WriteLine(item);
 }
 
+var customCollection = new CustomCollectionWithIteretors(new string[] { "aaa", "bbb", "ccc" });
+foreach (var w in customCollection)
+{
+    Console.WriteLine(w);
+}
+
 Console.ReadKey();
 
 
