@@ -81,7 +81,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionExample", "Collec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionExample2", "CollectionExample2\CollectionExample2.csproj", "{70022102-C04C-4A88-9912-255A164B8542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YieldExample", "YieldExample\YieldExample.csproj", "{B3B80F53-85DA-4C12-A690-CF252AE7EE53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YieldExample", "YieldExample\YieldExample.csproj", "{B3B80F53-85DA-4C12-A690-CF252AE7EE53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLinekdList", "CustomLinekdList\CustomLinekdList.csproj", "{35B91CC6-9E7C-423B-8BEA-6BDCDE6D014C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +215,10 @@ Global
 		{B3B80F53-85DA-4C12-A690-CF252AE7EE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B80F53-85DA-4C12-A690-CF252AE7EE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B80F53-85DA-4C12-A690-CF252AE7EE53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B91CC6-9E7C-423B-8BEA-6BDCDE6D014C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B91CC6-9E7C-423B-8BEA-6BDCDE6D014C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B91CC6-9E7C-423B-8BEA-6BDCDE6D014C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B91CC6-9E7C-423B-8BEA-6BDCDE6D014C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -249,6 +255,7 @@ Global
 		{E32C3A74-444E-42CF-867D-613074222E49} = {A888594A-3C96-4163-915D-09B76365842E}
 		{70022102-C04C-4A88-9912-255A164B8542} = {A888594A-3C96-4163-915D-09B76365842E}
 		{B3B80F53-85DA-4C12-A690-CF252AE7EE53} = {A888594A-3C96-4163-915D-09B76365842E}
+		{35B91CC6-9E7C-423B-8BEA-6BDCDE6D014C} = {A888594A-3C96-4163-915D-09B76365842E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
