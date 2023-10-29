@@ -5,9 +5,13 @@ var list = new SinglyLinkedList<string>();
 list.AddToFront("a");
 list.AddToFront("b");
 list.AddToFront("c");
+Console.WriteLine("contains b? " +list.Contains("b"));
+Console.WriteLine("contains d? " +list.Contains("d"));
 list.Add("d");
 list.Add("e");
-list.Clear();
+list.Remove("c");
+list.Remove("a");
+
 
 foreach (var item in list)
 {
@@ -71,7 +75,11 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
 
     public bool Contains(T? item)
     {
-        throw new NotImplementedException();
+        if (item is null)
+        {
+            return GetNodes().Any(node => item!.Equals(null));
+        }
+        return GetNodes().Any(node => item.Equals(node.Value));
     }
 
     public void CopyTo(T?[] array, int arrayIndex)
@@ -81,7 +89,26 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
 
     public bool Remove(T? item)
     {
-        throw new NotImplementedException();
+        Node<T>? predecessor = null;
+        foreach (var node in GetNodes())
+        {
+            if ((node.Value is null && item is null) ||
+                (node.Value is not null && node.Value.Equals(item)))
+            {
+                if (predecessor is null)
+                {
+                    _head = node.Next;
+                }
+                else
+                { 
+                    predecessor.Next = node.Next;
+                }
+                --_count;
+                return true;
+            }
+            predecessor = node;
+        }
+        return false;
     }
 
     public IEnumerator<T?> GetEnumerator()
