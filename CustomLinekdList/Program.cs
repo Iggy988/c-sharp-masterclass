@@ -6,6 +6,11 @@ list.AddToFront("a");
 list.AddToFront("b");
 list.AddToFront("c");
 
+foreach (var item in list)
+{
+    Console.WriteLine(item);    
+}  
+
 Console.ReadKey();
 
 public interface ILinkedList<T> : ICollection<T>
@@ -66,12 +71,29 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
 
     public IEnumerator<T?> GetEnumerator()
     {
-        throw new NotImplementedException();
+        foreach (var node in GetNodes())
+        {
+            yield return node.Value;
+        }
     }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        throw new NotImplementedException();
+        return GetEnumerator();
+    }
+
+    private IEnumerable<Node<T>> GetNodes()
+    {
+        if (_head is null)
+	    {
+            yield break;
+	    }
+        Node<T>? current = _head;
+        while (current is not null)
+        {
+            yield return current;
+            current = current.Next;
+        }
     }
 }
 
