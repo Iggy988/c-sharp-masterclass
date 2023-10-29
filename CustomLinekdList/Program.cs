@@ -1,4 +1,11 @@
 ﻿using System.Collections;
+
+var list = new SinglyLinkedList<string>();
+
+list.AddToFront("a");
+list.AddToFront("b");
+list.AddToFront("c");
+
 Console.ReadKey();
 
 public interface ILinkedList<T> : ICollection<T>
@@ -28,7 +35,13 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
 
     public void AddToFront(T? item)
     {
-        throw new NotImplementedException();
+        
+        var newHead = new Node<T>(item)
+        {
+            Next = _head,
+        };
+        _head = newHead;
+        ++_count;
     }
 
     public void Clear()
