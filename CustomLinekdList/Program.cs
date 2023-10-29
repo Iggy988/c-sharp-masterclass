@@ -2,6 +2,9 @@
 
 var list = new SinglyLinkedList<string>();
 
+ICollection<int> builtLinkedList = new LinkedList<int>();
+builtLinkedList.Add(5);
+
 list.AddToFront("a");
 list.AddToFront("b");
 list.AddToFront("c");
@@ -29,7 +32,7 @@ Console.ReadKey();
 
 public class SinglyLinkedList<T> : ILinkedList<T?>
 {
-    private Node<T>? _head;
+    private Node? _head;
     private int _count;
 
     public int Count => _count;
@@ -43,7 +46,7 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
 
     public void AddToEnd(T? item)
     {
-        var newNode = new Node<T>(item);
+        var newNode = new Node(item);
         if (_head is null)
         {
             _head = newNode;
@@ -59,7 +62,7 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
     public void AddToFront(T? item)
     {
         
-        var newHead = new Node<T>(item)
+        var newHead = new Node(item)
         {
             Next = _head,
         };
@@ -69,10 +72,12 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
 
     public void Clear()
     {
-        Node<T>? current = _head;
+        //This loop is not really needed
+        //if Node is a private class in SinglyLinkedList class
+        Node? current = _head;
         while (current is not null)
         {
-            Node<T>? temporary = current;
+            Node? temporary = current;
             current.Next = null;
             temporary.Next = null;
         }
@@ -113,7 +118,7 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
 
     public bool Remove(T? item)
     {
-        Node<T>? predecessor = null;
+        Node? predecessor = null;
         foreach (var node in GetNodes())
         {
             if ((node.Value is null && item is null) ||
@@ -148,17 +153,29 @@ public class SinglyLinkedList<T> : ILinkedList<T?>
         return GetEnumerator();
     }
 
-    private IEnumerable<Node<T>> GetNodes()
+    private IEnumerable<Node> GetNodes()
     {
-        if (_head is null)
-	    {
-            yield break;
-	    }
-        Node<T>? current = _head;
+        Node? current = _head;
         while (current is not null)
         {
             yield return current;
             current = current.Next;
+        }
+    }
+    // private nested class
+    private class Node
+    {
+        public T? Value { get; }
+        public Node? Next { get; set; }
+
+        public Node(T? value)
+        {
+            Value = value;
+        }
+
+        public override string ToString()
+        {
+            return $"Value: {Value}, Next: {(Next is null ? "null" : Next.Value)}";
         }
     }
 }
