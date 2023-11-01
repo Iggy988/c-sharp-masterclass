@@ -1,5 +1,7 @@
-﻿
+﻿using Newtonsoft.Json;
 using Utilities;
+
+var json = JsonConvert.SerializeObject(5);
 
 var numbers = new int[] { 1, 2, 3, 4, 5 };
 Console.WriteLine(numbers.AsString());
