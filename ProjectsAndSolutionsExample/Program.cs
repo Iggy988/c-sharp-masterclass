@@ -8,7 +8,15 @@ Console.WriteLine(numbers.AsString());
 //InternalClass internalClass;
 //
 
+//new PublicClass().ProtectedInternal(); - ne moze zato sto je protected
 
 Console.WriteLine("Press any key to close app.");
 Console.ReadKey();
 
+public class DerivedFromPublicClass : PublicClass
+{
+    public void Test()
+    {
+        ProtectedInternal();
+    }
+}
