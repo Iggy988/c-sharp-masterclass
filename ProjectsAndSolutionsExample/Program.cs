@@ -17,6 +17,7 @@ public class DerivedFromPublicClass : PublicClass
 {
     public void Test()
     {
-        ProtectedInternal();
+        ProtectedInternal(); // moze se unutar derived class pozivati
+        //PrivateProtected();  ne moze zato sto je u razlicitom assemblyju
     }
 }

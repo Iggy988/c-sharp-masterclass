@@ -19,6 +19,15 @@ public class PublicClass
     }
 
     protected internal  void ProtectedInternal() { }
+    private protected void PrivateProtected() { }
+}
+
+internal class DerivedFromPublicClass : PublicClass
+{
+    public void Test()
+    {
+        PrivateProtected(); // moze se unutar derived class pozivati
+    }
 }
 
 internal class InternalClass
@@ -27,4 +36,9 @@ internal class InternalClass
     {
         new PublicClass().ProtectedInternal();
     }
+}
+
+file class AccessibleOnlyInThisFile
+{
+
 }
