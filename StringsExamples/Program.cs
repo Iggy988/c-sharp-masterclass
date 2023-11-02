@@ -2,8 +2,6 @@
 string text = "abc";
 text += "d";
 
-
-
 var upperCase = text.ToUpper();
 Console.WriteLine(text);
 Console.WriteLine(upperCase);
@@ -16,10 +14,25 @@ Modify(text1);
 
 Console.WriteLine(text1);
 
+var test = new TestStruct
+{
+    Text = "abc"
+};
+
+var other = test;
+
+
+
+
 Console.ReadKey();
 
 
 void Modify(string input)
 {
     input += "xyz";
+}
+
+public struct TestStruct
+{
+    public string Text { get; set; }
 }
