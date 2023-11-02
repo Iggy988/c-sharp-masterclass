@@ -11,4 +11,13 @@ var isDigit = char.IsDigit(letter); //will be false
 var isWhitespace = char.IsWhiteSpace(newLine); //will be true
 var aToUpper = char.ToUpper(letter); //will give 'A'
 
+
+char someChar = (char)100;
+int asInt = (int)'t';
+
+for (char c = 'A'; c < 'z'; ++c)
+{
+    Console.Write(c + ", ");
+}
+
 Console.ReadKey();
