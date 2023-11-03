@@ -21,7 +21,13 @@ var test = new TestStruct
 
 var other = test;
 
+const int Count = 100;
 
+var text3 = string.Empty;
+for (int i = 0; i < Count; i++)
+{
+    text3 += "a";
+}
 
 
 Console.ReadKey();
