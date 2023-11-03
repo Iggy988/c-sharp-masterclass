@@ -1,4 +1,7 @@
 ﻿
+using System.Diagnostics;
+using System.Text;
+
 string text = "abc";
 text += "d";
 
@@ -21,14 +24,30 @@ var test = new TestStruct
 
 var other = test;
 
-const int Count = 100;
+const int Count = 200_000;
 
 var text3 = string.Empty;
+Stopwatch stopwatch = Stopwatch.StartNew();
 for (int i = 0; i < Count; i++)
 {
-    text3 += "a";
+    text3 += "a"; // a aa aaa aaaa...
 }
 
+stopwatch.Stop();
+Console.WriteLine($"Concatenation took {stopwatch.ElapsedMilliseconds} ms");
+
+stopwatch.Restart();
+var stringBuilder = new StringBuilder();
+stopwatch.Start();
+for (int i = 0; i < Count; i++)
+{
+    stringBuilder.Append("a");
+}
+
+var text4 = stringBuilder.ToString();
+
+stopwatch.Stop();
+Console.WriteLine($"Concatenation took {stopwatch.ElapsedMilliseconds} ms");
 
 Console.ReadKey();
 
