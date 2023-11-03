@@ -12,6 +12,8 @@ Console.WriteLine(upperCase);
 string text1 = "abc";
 string text2 = "abc";
 Console.WriteLine(text1.Equals(text2));
+//string interning 
+Console.WriteLine(object.ReferenceEquals(text1, text2));
 
 Modify(text1);
 
@@ -49,8 +51,26 @@ var text4 = stringBuilder.ToString();
 stopwatch.Stop();
 Console.WriteLine($"Concatenation took {stopwatch.ElapsedMilliseconds} ms");
 
+TestStringsMmoryConsumption(Count);
+
 Console.ReadKey();
 
+
+void TestStringsMmoryConsumption(int count)
+{
+    var list = new List<string>(count);
+    GC.Collect(2, GCCollectionMode.Default, true);
+    var memoryBefore = GC.GetTotalMemory(false);
+
+    for (int i = 0; i < Count; i++)
+    {
+        list.Add($"aaaaa{i}");
+    }
+    GC.Collect(2, GCCollectionMode.Default, true);
+    var memoryAfter = GC.GetTotalMemory(false);
+    Console.WriteLine("difference in bytes is " + (memoryAfter - memoryBefore));
+
+}
 
 void Modify(string input)
 {
