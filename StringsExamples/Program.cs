@@ -71,6 +71,7 @@ string.Format("Date is {0:MM/yyyy}", someDate); //05/24
 CultureInfo currentCulture = CultureInfo.CurrentCulture;
 Console.WriteLine(currentCulture);
 var date = new DateTime(2025, 3, 2, 12, 16, 14);
+date.ToString("d", CultureInfo.InvariantCulture);
 var number = 1.9;
 CultureInfo.CurrentCulture = new CultureInfo("Pl-pl");
 

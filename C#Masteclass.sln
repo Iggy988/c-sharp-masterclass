@@ -93,9 +93,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Util
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Strings", "Strings", "{11E22D26-B128-499E-94A5-383869B37126}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsExamples", "StringsExamples\StringsExamples.csproj", "{18DB389C-96D4-4C4B-A980-BD2AF7920840}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringsExamples", "StringsExamples\StringsExamples.csproj", "{18DB389C-96D4-4C4B-A980-BD2AF7920840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharsExample", "CharsExample\CharsExample.csproj", "{52C03A84-FC79-4943-ADE7-B2C77A7E0514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharsExample", "CharsExample\CharsExample.csproj", "{52C03A84-FC79-4943-ADE7-B2C77A7E0514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketDataAggregator", "TicketDataAggregator\TicketDataAggregator.csproj", "{D66E3EE2-4E00-4A3E-8F12-6F7F24066A80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -247,6 +249,10 @@ Global
 		{52C03A84-FC79-4943-ADE7-B2C77A7E0514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52C03A84-FC79-4943-ADE7-B2C77A7E0514}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52C03A84-FC79-4943-ADE7-B2C77A7E0514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66E3EE2-4E00-4A3E-8F12-6F7F24066A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66E3EE2-4E00-4A3E-8F12-6F7F24066A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66E3EE2-4E00-4A3E-8F12-6F7F24066A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66E3EE2-4E00-4A3E-8F12-6F7F24066A80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -288,6 +294,7 @@ Global
 		{39F79C01-2017-46A3-ADFA-D432A57C04C4} = {833EB596-73AD-4263-88BC-2A13DF7BF831}
 		{18DB389C-96D4-4C4B-A980-BD2AF7920840} = {11E22D26-B128-499E-94A5-383869B37126}
 		{52C03A84-FC79-4943-ADE7-B2C77A7E0514} = {11E22D26-B128-499E-94A5-383869B37126}
+		{D66E3EE2-4E00-4A3E-8F12-6F7F24066A80} = {11E22D26-B128-499E-94A5-383869B37126}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
