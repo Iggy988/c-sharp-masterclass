@@ -1,5 +1,6 @@
 ﻿
 using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 
 string text = "abc";
@@ -65,6 +66,16 @@ DateTime someDate = new DateTime(2024, 5, 6, 12, 54, 12);
 string.Format("Date is {0:d}", someDate); //5/6/2024
 string.Format("Date is {0:D}", someDate); //Monday, May, 6, 2024
 string.Format("Date is {0:MM/yyyy}", someDate); //05/24
+
+
+CultureInfo currentCulture = CultureInfo.CurrentCulture;
+Console.WriteLine(currentCulture);
+var date = new DateTime(2025, 3, 2, 12, 16, 14);
+var number = 1.9;
+CultureInfo.CurrentCulture = new CultureInfo("Pl-pl");
+
+Console.WriteLine(date.ToString());
+Console.WriteLine(number);
 
 Console.ReadKey();
 
