@@ -53,6 +53,19 @@ Console.WriteLine($"Concatenation took {stopwatch.ElapsedMilliseconds} ms");
 
 TestStringsMmoryConsumption(Count);
 
+var text5 = string.Format("Number is {0}, number 2 is {1}", 100, 200);
+Console.WriteLine(text5);
+
+var someDecimal = 1.34M;
+string.Format("Number is {0:C3}", someDecimal); //$1.34
+string.Format("Number is {0:F1}", someDecimal); // 1.4
+string.Format("Number is {0:P}", someDecimal);  //134.00%
+
+DateTime someDate = new DateTime(2024, 5, 6, 12, 54, 12);
+string.Format("Date is {0:d}", someDate); //5/6/2024
+string.Format("Date is {0:D}", someDate); //Monday, May, 6, 2024
+string.Format("Date is {0:MM/yyyy}", someDate); //05/24
+
 Console.ReadKey();
 
 
