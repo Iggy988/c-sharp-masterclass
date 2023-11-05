@@ -4,7 +4,7 @@ const string TicketFolder = @"D:\C#&.NET projects\C#Masteclass\TicketDataAggrega
 
 try
 {
-	var ticketsAggregator = new TicketsAggregator(TicketFolder);
+	var ticketsAggregator = new TicketsAggregator(TicketFolder, new FileWriter(), new DocumentsFromPdfsReader());
 
 	ticketsAggregator.Run();
 }
