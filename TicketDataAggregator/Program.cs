@@ -1,6 +1,7 @@
 ﻿using UglyToad.PdfPig.Content;
 using UglyToad.PdfPig;
 using System.Globalization;
+using System.Text;
 
 const string TicketFolder = @"D:\C#&.NET projects\C#Masteclass\TicketDataAggregator\Tickets";
 
@@ -34,7 +35,7 @@ public class TicketsAggregator
 
     public void Run()
     {
-
+        var stringBuilder = new StringBuilder();
         //GetFiles(folder where to search, pattern what to search)
         foreach (var filePath in Directory.GetFiles(_ticketFolder, "*.pdf"))
         {
@@ -56,8 +57,19 @@ public class TicketsAggregator
 
                 var date = DateOnly.Parse(dateAsString, new CultureInfo(ticketCulture));
                 var time = TimeOnly.Parse(timeAsString, new CultureInfo(ticketCulture));
+
+                var dateAsStringInvariant = date.ToString(CultureInfo.InvariantCulture);
+                var timeAsStringInvariant = time.ToString(CultureInfo.InvariantCulture);
+
+                var ticketData = $"{title,-40}|{dateAsStringInvariant}|{timeAsStringInvariant}";
+                stringBuilder.AppendLine(ticketData);
             }
         }
+
+        var resultPath = Path.Combine(_ticketFolder, "aggregatedTickets.txt");
+
+        File.WriteAllText(resultPath, stringBuilder.ToString());
+        Console.WriteLine("Results saved to " + resultPath);
     }
 
     //domain is part that starts at last dot (www.ourSite.com)
