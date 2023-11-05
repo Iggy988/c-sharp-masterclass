@@ -27,11 +27,23 @@ public class TicketsAggregator
 
     public void Run()
     {
-        using (PdfDocument document = PdfDocument.Open(_ticketFolder + @"\Tickets1.pdf"))
+
+        //GetFiles(folder where to search, pattern what to search)
+        foreach (var filePath in Directory.GetFiles(_ticketFolder, "*.pdf"))
         {
+            using PdfDocument document = PdfDocument.Open(filePath);
 
             Page page = document.GetPage(1);
             string text = page.Text;
+            var split = text.Split(new[] { "Title:", "Date:", "Time:", "Visit us:"}, StringSplitOptions.None);
+
+            //-3 zato sto ignorisemo visit us
+            for (int i = 1; i < split.Length -3; i += 3)
+            {
+                var title = split[i];
+                var date = split[i + 1];
+                var time = split[i + 2];
+            }
         }
     }
 }
