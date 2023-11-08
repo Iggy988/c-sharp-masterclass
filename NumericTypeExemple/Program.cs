@@ -28,6 +28,8 @@ else
 
 SomeMethodWithCheckedContext(twoBillion, twoBillion);
 
+Console.WriteLine(0.3d == (0.2d + 0.1d));
+
 Console.ReadKey();
 
 void SomeMethodWithCheckedContext(int a, int b)
