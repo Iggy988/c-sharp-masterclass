@@ -29,6 +29,7 @@ else
 SomeMethodWithCheckedContext(twoBillion, twoBillion);
 
 Console.WriteLine(0.3d == (0.2d + 0.1d));
+Console.WriteLine(0.3m == (0.2m + 0.1m));
 Console.WriteLine(AreEquals(0.3d,0.2d+ 0.1d, 0.000001d));
 
 var result = 10d / 0d;
