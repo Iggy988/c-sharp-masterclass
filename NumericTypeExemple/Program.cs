@@ -29,8 +29,16 @@ else
 SomeMethodWithCheckedContext(twoBillion, twoBillion);
 
 Console.WriteLine(0.3d == (0.2d + 0.1d));
+Console.WriteLine(AreEquals(0.3d,0.2d+ 0.1d, 0.000001d));
+
+var result = 10d / 0d;
 
 Console.ReadKey();
+
+bool AreEquals(double a, double b, double tolerance)
+{
+    return Math.Abs(a - b)> tolerance;
+}
 
 void SomeMethodWithCheckedContext(int a, int b)
 {
