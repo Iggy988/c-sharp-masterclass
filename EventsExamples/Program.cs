@@ -16,6 +16,11 @@ var goldPriceReader = new GoldPriceReader();
 goldPriceReader.PriceRead += emailPriceChangeNotifierr.Update;
 goldPriceReader.PriceRead += pushPriceChangeNotifier.Update;
 
+for (int i = 0; i < 3; ++i)
+{
+    goldPriceReader.ReadCurrentPrice();
+}
+
 Console.ReadKey();
 
 
