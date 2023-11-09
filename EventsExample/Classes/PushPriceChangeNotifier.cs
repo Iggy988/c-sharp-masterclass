@@ -2,7 +2,7 @@
 
 
 
-public class PushPriceChangeNotifier
+public class PushPriceChangeNotifier : IObserver<decimal>
 {
     private readonly decimal _notificationTreshold;
 

@@ -1,8 +1,5 @@
 ﻿
-
-
-
-public class EmailPriceChangeNotifier
+public class EmailPriceChangeNotifier : IObserver<decimal>
 {
     private readonly decimal _notificationTreshold;
 
