@@ -9,22 +9,36 @@ method1(10, 2);
 
 const int Treshold = 30_000;
 
-var emailPriceChangeNotifierr = new EmailPriceChangeNotifier(Treshold);
-var pushPriceChangeNotifier = new PushPriceChangeNotifier(Treshold);
 
-var goldPriceReader = new GoldPriceReader();
-goldPriceReader.PriceRead += emailPriceChangeNotifierr.Update;
-goldPriceReader.PriceRead += pushPriceChangeNotifier.Update;
-goldPriceReader.PriceReadDelegate += pushPriceChangeNotifier.Update;
+
+bool areNotificationsEnabled = true;
+if (areNotificationsEnabled)
+{
+    var emailPriceChangeNotifierr = new EmailPriceChangeNotifier(Treshold);
+    var pushPriceChangeNotifier = new PushPriceChangeNotifier(Treshold);
+
+    var goldPriceReader = new GoldPriceReader();
+    goldPriceReader.PriceRead += emailPriceChangeNotifierr.Update;
+    goldPriceReader.PriceRead += pushPriceChangeNotifier.Update;
+    //goldPriceReader.PriceReadDelegate += pushPriceChangeNotifier.Update;
+
+    for (int i = 0; i < 3; ++i)
+    {
+        goldPriceReader.ReadCurrentPrice();
+    }
+
+    //detach event to GC remove unused objects
+    goldPriceReader.PriceRead -= emailPriceChangeNotifierr.Update;
+    goldPriceReader.PriceRead -= pushPriceChangeNotifier.Update;
+}
+
+
 
 //only class that holds event can raise it
 //goldPriceReader.PriceRead(null, null); // we cannot invoke event otside class it belongs to
-goldPriceReader.PriceReadDelegate(null, null); //we can invoke delegeta
+//goldPriceReader.PriceReadDelegate(null, null); //we can invoke delegeta
 
-for (int i = 0; i < 3; ++i)
-{
-    goldPriceReader.ReadCurrentPrice();
-}
+
 
 Console.ReadKey();
 
