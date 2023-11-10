@@ -1,4 +1,6 @@
 ﻿
+using EventsExamples.Classes;
+
 public class PushPriceChangeNotifier 
 {
     private readonly decimal _notificationTreshold;
@@ -7,11 +9,11 @@ public class PushPriceChangeNotifier
     {
         _notificationTreshold = notificationTreshold;
     }
-    public void Update(decimal price)
+    public void Update(object? sender, PriceReadEventArgs eventArgs)
     {
-        if (price > _notificationTreshold)
+        if (eventArgs.Price > _notificationTreshold)
         {
-            Console.WriteLine($"Sending a push notification saying that the gold price exceeded {_notificationTreshold} and is now {price}\n");
+            Console.WriteLine($"Sending a push notification saying that the gold price exceeded {_notificationTreshold} and is now {eventArgs.Price}\n");
         }
     }
 }

@@ -32,4 +32,5 @@ void Test3(int num1, int num2) { }
 
 public delegate void SomeMethod(int a, int b);
 
-public delegate void PriceRead(decimal price);
+//public delegate void PriceRead(decimal price); custom delegate
+

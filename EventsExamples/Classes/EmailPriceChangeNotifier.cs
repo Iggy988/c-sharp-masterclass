@@ -1,4 +1,6 @@
 ﻿
+using EventsExamples.Classes;
+
 public class EmailPriceChangeNotifier 
 {
     private readonly decimal _notificationTreshold;
@@ -8,11 +10,11 @@ public class EmailPriceChangeNotifier
         _notificationTreshold = notificationTreshold;
     }
 
-    public void Update(decimal price)
+    public void Update(object? sender, PriceReadEventArgs eventArgs)
     {
-        if (price > _notificationTreshold)
+        if (eventArgs.Price > _notificationTreshold)
         {
-            Console.WriteLine($"Sending an email saying that the gold price exceeded {_notificationTreshold} and is now {price}\n");
+            Console.WriteLine($"Sending an email saying that the gold price exceeded {_notificationTreshold} and is now {eventArgs.Price}\n");
         }
     }
 }
