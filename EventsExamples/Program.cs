@@ -15,6 +15,11 @@ var pushPriceChangeNotifier = new PushPriceChangeNotifier(Treshold);
 var goldPriceReader = new GoldPriceReader();
 goldPriceReader.PriceRead += emailPriceChangeNotifierr.Update;
 goldPriceReader.PriceRead += pushPriceChangeNotifier.Update;
+goldPriceReader.PriceReadDelegate += pushPriceChangeNotifier.Update;
+
+//only class that holds event can raise it
+//goldPriceReader.PriceRead(null, null); // we cannot invoke event otside class it belongs to
+goldPriceReader.PriceReadDelegate(null, null); //we can invoke delegeta
 
 for (int i = 0; i < 3; ++i)
 {

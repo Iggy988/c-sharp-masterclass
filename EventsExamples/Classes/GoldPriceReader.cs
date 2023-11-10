@@ -8,6 +8,7 @@ public class GoldPriceReader
     // public event PriceRead? PriceRead;
 
     public event EventHandler<PriceReadEventArgs>? PriceRead;
+    public  EventHandler<PriceReadEventArgs>? PriceReadDelegate;
 
 
     public void ReadCurrentPrice()
