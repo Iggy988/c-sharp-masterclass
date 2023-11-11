@@ -30,6 +30,8 @@ partial class MainForm
     {
         CounterLabel = new Label();
         button1 = new Button();
+        checkBox1 = new CheckBox();
+        textBox1 = new TextBox();
         SuspendLayout();
         // 
         // CounterLabel
@@ -53,11 +55,33 @@ partial class MainForm
         button1.UseVisualStyleBackColor = true;
         button1.Click += button1_Click;
         // 
+        // checkBox1
+        // 
+        checkBox1.AutoSize = true;
+        checkBox1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+        checkBox1.Location = new Point(149, 204);
+        checkBox1.Name = "checkBox1";
+        checkBox1.Size = new Size(137, 32);
+        checkBox1.TabIndex = 2;
+        checkBox1.Text = "Hide button";
+        checkBox1.UseVisualStyleBackColor = true;
+        checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+        // 
+        // textBox1
+        // 
+        textBox1.Location = new Point(364, 213);
+        textBox1.Name = "textBox1";
+        textBox1.Size = new Size(194, 23);
+        textBox1.TabIndex = 3;
+        textBox1.KeyPress += textBox1_KeyPress;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(textBox1);
+        Controls.Add(checkBox1);
         Controls.Add(button1);
         Controls.Add(CounterLabel);
         Name = "MainForm";
@@ -70,4 +94,6 @@ partial class MainForm
 
     private Label CounterLabel;
     private Button button1;
+    private CheckBox checkBox1;
+    private TextBox textBox1;
 }
