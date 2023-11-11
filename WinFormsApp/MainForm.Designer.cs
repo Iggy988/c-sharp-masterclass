@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp;
 
-partial class Form1
+partial class MainForm
 {
     /// <summary>
     ///  Required designer variable.
@@ -28,26 +28,39 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        label1 = new Label();
+        CounterLabel = new Label();
+        button1 = new Button();
         SuspendLayout();
         // 
-        // label1
+        // CounterLabel
         // 
-        label1.AutoSize = true;
-        label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
-        label1.Location = new Point(149, 115);
-        label1.Name = "label1";
-        label1.Size = new Size(33, 37);
-        label1.TabIndex = 0;
-        label1.Text = "0";
+        CounterLabel.AutoSize = true;
+        CounterLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+        CounterLabel.Location = new Point(149, 115);
+        CounterLabel.Name = "CounterLabel";
+        CounterLabel.Size = new Size(33, 37);
+        CounterLabel.TabIndex = 0;
+        CounterLabel.Text = "0";
+        CounterLabel.Click += CounterLabel_Click;
         // 
-        // Form1
+        // button1
+        // 
+        button1.Location = new Point(244, 129);
+        button1.Name = "button1";
+        button1.Size = new Size(75, 23);
+        button1.TabIndex = 1;
+        button1.Text = "button1";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
+        // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
-        Controls.Add(label1);
-        Name = "Form1";
+        Controls.Add(button1);
+        Controls.Add(CounterLabel);
+        Name = "MainForm";
         Text = "Our first app";
         ResumeLayout(false);
         PerformLayout();
@@ -55,5 +68,6 @@ partial class Form1
 
     #endregion
 
-    private Label label1;
+    private Label CounterLabel;
+    private Button button1;
 }
