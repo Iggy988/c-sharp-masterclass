@@ -109,7 +109,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObservableExample", "Events
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventsExamples", "EventsExamples\EventsExamples.csproj", "{DC2A8CE4-B988-455B-820C-D59C34CF9328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{F372D4DA-0339-4FC1-A4E4-9E535F7AC43B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{F372D4DA-0339-4FC1-A4E4-9E535F7AC43B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericTypeSuggester", "NumericTzpeSuggester\NumericTypeSuggester.csproj", "{71886021-C83C-4D92-8B40-B5C8D962AC90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -281,6 +283,10 @@ Global
 		{F372D4DA-0339-4FC1-A4E4-9E535F7AC43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F372D4DA-0339-4FC1-A4E4-9E535F7AC43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F372D4DA-0339-4FC1-A4E4-9E535F7AC43B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71886021-C83C-4D92-8B40-B5C8D962AC90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71886021-C83C-4D92-8B40-B5C8D962AC90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71886021-C83C-4D92-8B40-B5C8D962AC90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71886021-C83C-4D92-8B40-B5C8D962AC90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -327,6 +333,7 @@ Global
 		{EA53ECB4-4375-4477-8259-1B6447A4C980} = {7F16818D-AA66-4CC1-8352-5BE57F31D439}
 		{DC2A8CE4-B988-455B-820C-D59C34CF9328} = {7F16818D-AA66-4CC1-8352-5BE57F31D439}
 		{F372D4DA-0339-4FC1-A4E4-9E535F7AC43B} = {7F16818D-AA66-4CC1-8352-5BE57F31D439}
+		{71886021-C83C-4D92-8B40-B5C8D962AC90} = {7F16818D-AA66-4CC1-8352-5BE57F31D439}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
