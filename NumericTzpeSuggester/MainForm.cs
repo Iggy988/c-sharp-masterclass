@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace NumericTzpeSuggester;
 
 public partial class MainForm : Form
@@ -22,7 +24,7 @@ public partial class MainForm : Form
     private void TextBox_TextChanged(object sender, EventArgs e)
     {
         RecalculateSuggestedType();
-        ValidateMinAndMaxValues();
+        SetColorOfMaxValueTextField();
     }
 
     private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -34,7 +36,7 @@ public partial class MainForm : Form
         }
     }
 
-    private bool IsValidInput(char keyChar, TextBox textBox)
+    private static bool IsValidInput(char keyChar, TextBox textBox)
     {
         return 
             char.IsControl(keyChar) || 
@@ -42,9 +44,31 @@ public partial class MainForm : Form
             (keyChar == '-' && textBox.SelectionStart == 0);
     }
 
-    private void ValidateMinAndMaxValues()
+    private void SetColorOfMaxValueTextField()
     {
+        bool isValid = true;
 
+        if (IsInputComplete())
+        {
+            var minValue = BigInteger.Parse(MinValueTB.Text);
+            var maxValue = BigInteger.Parse(MaxValueTB.Text);
+
+            if (maxValue < minValue)
+            {
+                isValid = false;
+            }
+        }
+
+        MaxValueTB.BackColor = isValid ? Color.White : Color.IndianRed;
+    }
+
+    private bool IsInputComplete()
+    {
+        return 
+            MinValueTB.Text.Length > 0 &&
+            MinValueTB.Text != "-" &&
+            MaxValueTB.Text.Length > 0 && 
+            MaxValueTB.Text != "-"; 
     }
 
     private void RecalculateSuggestedType()
