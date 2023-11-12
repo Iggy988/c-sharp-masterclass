@@ -69,11 +69,27 @@ public partial class MainForm : Form
             MinValueTB.Text != "-" &&
             MaxValueTB.Text.Length > 0 && 
             MaxValueTB.Text != "-"; 
+
     }
 
     private void RecalculateSuggestedType()
     {
-
+        if (IsInputComplete())
+        {
+            var minValue = BigInteger.Parse(MinValueTB.Text);
+            var maxValue = BigInteger.Parse(MaxValueTB.Text);
+           
+            if (maxValue >= minValue)
+            { 
+                ResultLabel.Text = NumericTypeSuggesterr.GetName(
+                    minValue,
+                    maxValue,
+                    IntegralsOnlyCBox.Checked,
+                    MustBePreciseCBox.Checked);
+                return;
+            }
+        }
+        ResultLabel.Text = "not enough data";
     }
 
 
