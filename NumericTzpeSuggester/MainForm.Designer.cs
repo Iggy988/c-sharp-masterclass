@@ -47,6 +47,7 @@ partial class MainForm
         MinValueTB.Size = new Size(562, 35);
         MinValueTB.TabIndex = 0;
         MinValueTB.TextChanged += TextBox_TextChanged;
+        MinValueTB.KeyPress += TextBox_KeyPress;
         // 
         // MaxValueTB
         // 
@@ -56,6 +57,7 @@ partial class MainForm
         MaxValueTB.Size = new Size(562, 35);
         MaxValueTB.TabIndex = 0;
         MaxValueTB.TextChanged += TextBox_TextChanged;
+        MaxValueTB.KeyPress += TextBox_KeyPress;
         // 
         // MinValueLabel
         // 
