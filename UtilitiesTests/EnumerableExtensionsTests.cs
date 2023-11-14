@@ -39,4 +39,38 @@ public class EnumerableExtensionsTests
     {
         Assert.AreEqual(3, Calculator.Sum(1, 2));
     }
+
+    [TestCase(8)]
+    [TestCase(-8)]
+    [TestCase(6)]
+    [TestCase(0)]
+    public void SumOfEvenNumbers_ShallReturnValueOfTheOnlyItem_IfItIsEven(int number)
+    {
+        //Arrange
+        var input = new int[] { number };
+
+        //Act
+        var result = input.SumOfEvenNumbers();
+
+        //Assert
+
+        Assert.AreEqual(number, result);
+    }
+
+    [TestCase(1)]
+    [TestCase(-3)]
+    [TestCase(7)]
+    [TestCase(33)]
+    public void SumOfEvenNumbers_ShallReturnZero_IfOnlynNumberInInputIsOdd(int number)
+    {
+        //Arrange
+        var input = new int[] { number };
+
+        //Act
+        var result = input.SumOfEvenNumbers();
+
+        //Assert
+
+        Assert.AreEqual(0, result);
+    }
 }
