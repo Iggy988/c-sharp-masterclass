@@ -34,10 +34,15 @@ public class EnumerableExtensionsTests
             $" {expected} but it was {result}.");
     }
 
-    [Test]
-    public void Sum_ShallGive3_WhenAdding_2_And_1()
+    [TestCase(1,2,3)]
+    [TestCase(1,-1,0)]
+    [TestCase(0,0,0)]
+    [TestCase(100,-50,50)]
+    [TestCase(11,12,23)]
+    public void Sum_ShallAddNumbersCorrectly(int a, int b, int expected)
     {
-        Assert.AreEqual(3, Calculator.Sum(1, 2));
+        Assert.AreEqual(expected, Calculator.Sum(a, b), $"Adding {a} to {b} shall give {expected}," +
+            $"but the result was {Calculator.Sum(a, b)}.");
     }
 
     [TestCase(8)]
