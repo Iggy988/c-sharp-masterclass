@@ -20,14 +20,23 @@ public class EnumerableExtensionsTests
     [Test]
     public void SumOfEvenNumbers_ShallReturnNonZeroResult_IfEvenNumbersArePresent()
     {
+        //Arrange
         var input = new int[] { 3,1,4,6,9 };
 
+        //Act
         var result = input.SumOfEvenNumbers();
 
+        //Assert
         var expected = 10;
         var inputAsString = string.Join(", ", input);
 
         Assert.AreEqual(10, result, $"For input {inputAsString} the result shall be" +
             $" {expected} but it was {result}.");
+    }
+
+    [Test]
+    public void Sum_ShallGive3_WhenAdding_2_And_1()
+    {
+        Assert.AreEqual(3, Calculator.Sum(1, 2));
     }
 }

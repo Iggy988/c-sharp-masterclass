@@ -12,6 +12,6 @@ public static class EnumerableExtensions
                 sum+=number;
             }
         }
-        return 1;
+        return sum;
     }
 }
