@@ -75,20 +75,34 @@ public class EnumerableExtensionsTests
         Assert.AreEqual(number, result);
     }
 
-    [TestCase(1)]
-    [TestCase(-3)]
-    [TestCase(7)]
-    [TestCase(33)]
+    //[TestCase(1)]
+    //[TestCase(-3)]
+    //[TestCase(7)]
+    //[TestCase(33)]
+    [Test]
     public void SumOfEvenNumbers_ShallReturnZero_IfOnlynNumberInInputIsOdd(int number)
     {
-        //Arrange
-        var input = new int[] { number };
+        var input1 = new int[] { 1 };
 
-        //Act
-        var result = input.SumOfEvenNumbers();
+        var result1 = input1.SumOfEvenNumbers();
 
-        //Assert
+        Assert.AreEqual(0, result1);
 
-        Assert.AreEqual(0, result);
+        var input2 = new int[] { -7 };
+
+        var result2 = input2.SumOfEvenNumbers();
+
+        Assert.AreEqual(0, result2);
+    }
+
+    [Test]
+    public void SumOfEvenNumbers_ShallThrowException_ForNullInput()
+    {
+        IEnumerable<int>? input = null;
+
+
+        var exception = Assert.Throws<NullReferenceException>(() => input!.SumOfEvenNumbers());
+
+        Assert.AreEqual("abc", exception.Message);
     }
 }
