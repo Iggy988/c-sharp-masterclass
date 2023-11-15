@@ -100,8 +100,31 @@ public class EnumerableExtensionsTests
     {
         IEnumerable<int>? input = null;
 
+        //Assert.DoesNotThrow(() => input!.SumOfEvenNumbers());
 
         var exception = Assert.Throws<ArgumentNullException>(() => input!.SumOfEvenNumbers());
+
+    }
+
+    [Test]
+    public void SomeTest()
+    {
+        //bool someVariable = true;
+        //Assert.IsTrue(someVariable);
+        //Assert.True(someVariable);
+        //Assert.False(someVariable);
+
+        //Assert.AreEqual(true, someVariable);
+
+        //Assert.Null(someVariable);
+        //Assert.NotNull(someVariable);
+
+        var collection1 = new List<int> { 1,2,3};
+        var collection2 = new List<int> { 3,2,1};
+
+        Assert.AreEqual(collection1, collection2);
+        CollectionAssert.AreEqual(collection1, collection2); //fail because is not same order
+        CollectionAssert.AreEquivalent(collection1, collection2); // succeed becouse order is not important
 
     }
 }
