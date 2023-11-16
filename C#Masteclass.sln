@@ -115,9 +115,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericTypeSuggester", "Num
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Testing", "Unit Testing", "{4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "UnitTestExample\Utilities.csproj", "{55170B6F-5700-4674-8F3F-F607407B7F94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "UnitTestExample\Utilities.csproj", "{55170B6F-5700-4674-8F3F-F607407B7F94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilitiesTests", "UtilitiesTests\UtilitiesTests.csproj", "{C31C8B05-3978-4F81-8AC5-672FBDEA7299}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilitiesTests", "UtilitiesTests\UtilitiesTests.csproj", "{C31C8B05-3978-4F81-8AC5-672FBDEA7299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciNumbers", "FibonacciNumbers\FibonacciNumbers.csproj", "{EF823978-08A8-4AA1-BA3B-404B6EF78D39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciGeneratorTests", "FibonacciGeneratorTests\FibonacciGeneratorTests.csproj", "{765CDD00-F86A-4384-BE92-FF198BF188B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -301,6 +305,14 @@ Global
 		{C31C8B05-3978-4F81-8AC5-672FBDEA7299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C31C8B05-3978-4F81-8AC5-672FBDEA7299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C31C8B05-3978-4F81-8AC5-672FBDEA7299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF823978-08A8-4AA1-BA3B-404B6EF78D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF823978-08A8-4AA1-BA3B-404B6EF78D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF823978-08A8-4AA1-BA3B-404B6EF78D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF823978-08A8-4AA1-BA3B-404B6EF78D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{765CDD00-F86A-4384-BE92-FF198BF188B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{765CDD00-F86A-4384-BE92-FF198BF188B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{765CDD00-F86A-4384-BE92-FF198BF188B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{765CDD00-F86A-4384-BE92-FF198BF188B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -350,6 +362,8 @@ Global
 		{71886021-C83C-4D92-8B40-B5C8D962AC90} = {7F16818D-AA66-4CC1-8352-5BE57F31D439}
 		{55170B6F-5700-4674-8F3F-F607407B7F94} = {4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}
 		{C31C8B05-3978-4F81-8AC5-672FBDEA7299} = {4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}
+		{EF823978-08A8-4AA1-BA3B-404B6EF78D39} = {4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}
+		{765CDD00-F86A-4384-BE92-FF198BF188B5} = {4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
