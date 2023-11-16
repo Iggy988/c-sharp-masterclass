@@ -127,4 +127,14 @@ public class EnumerableExtensionsTests
         CollectionAssert.AreEquivalent(collection1, collection2); // succeed becouse order is not important
 
     }
+
+    [TestCase(0)]
+    [TestCase(2)]
+    [TestCase(-2)]
+    [TestCase(124)]
+    public void IsEven_ShallReturnTrue_IfNumberIsDividableByTwo(int number)
+    {
+        var result = EnumerableExtensions.IsEven(number); 
+        Assert.True(result);
+    }
 }
