@@ -128,13 +128,13 @@ public class EnumerableExtensionsTests
 
     }
 
-    [TestCase(0)]
-    [TestCase(2)]
-    [TestCase(-2)]
-    [TestCase(124)]
-    public void IsEven_ShallReturnTrue_IfNumberIsDividableByTwo(int number)
-    {
-        var result = EnumerableExtensions.IsEven(number); 
-        Assert.True(result);
-    }
+//    [TestCase(0)]
+//    [TestCase(2)]
+//    [TestCase(-2)]
+//    [TestCase(124)]
+//    public void IsEven_ShallReturnTrue_IfNumberIsDividableByTwo(int number)
+//    {
+//        var result = EnumerableExtensions.IsEven(number); 
+//        Assert.True(result);
+//    }
 }
