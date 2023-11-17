@@ -1,9 +1,5 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Moq;
+using NUnit.Framework;
 
 namespace Utilities;
 [TestFixture]
@@ -13,6 +9,9 @@ public class PersonalDataReaderTests
     [Test]
     public void test1()
     {
+
+        var databaseConnectionMock = new Mock<IDatabaseConnection>();
+
         var personalDataReader = new PersonalDataReader(new DatabaseConnection());
 
         string result = personalDataReader.Read(5);
