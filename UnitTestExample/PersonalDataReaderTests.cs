@@ -7,12 +7,16 @@ public class PersonalDataReaderTests
 {
 
     [Test]
-    public void test1()
+    public void Read_ShallProduceResultWithDataOfPersonReadFromTheDatabase()
     {
 
         var databaseConnectionMock = new Mock<IDatabaseConnection>();
 
-        var personalDataReader = new PersonalDataReader(new DatabaseConnection());
+        databaseConnectionMock
+            .Setup(mock => mock.GetById(5))
+            .Returns(new Person(5, "John", "Smith"));
+
+        var personalDataReader = new PersonalDataReader(databaseConnectionMock.Object);
 
         string result = personalDataReader.Read(5);
 
