@@ -29,6 +29,19 @@ public class PersonalDataReaderTests
 
         Assert.AreEqual("(Id: 5) John Smith", result);
     }
+
+    [Test]
+    public void Save_ShallCallTheWriteMethod_WithCorrectArguments()
+    {
+        var databaseConnectionMock = new Mock<IDatabaseConnection>();
+
+        var personalDataReader = new PersonalDataReader(databaseConnectionMock.Object);
+
+        var personToBeSaved = new Person(10, "Jane", "Miller");
+        personalDataReader.Save(personToBeSaved);
+
+        databaseConnectionMock.Verify(mock => mock.Write(personToBeSaved.Id, personToBeSaved));
+    }
 }
 
 
