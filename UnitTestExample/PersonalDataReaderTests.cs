@@ -40,6 +40,10 @@ public class PersonalDataReaderTests
         var personToBeSaved = new Person(10, "Jane", "Miller");
         personalDataReader.Save(personToBeSaved);
 
+        //databaseConnectionMock.Verify(mock => mock.Write(personToBeSaved.Id, personToBeSaved), Times.Once());
+
+        //databaseConnectionMock.Verify(mock => mock.Write(It.Is<int>(id => id > 0), It.IsAny<Person>()));
+
         databaseConnectionMock.Verify(mock => mock.Write(personToBeSaved.Id, personToBeSaved));
     }
 }
