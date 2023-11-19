@@ -1,17 +1,10 @@
 ﻿
-
-
-
-
-
-
-
 class GuessingGame
 {
-    private readonly Dice _dice;
+    private readonly IDice _dice;
     private const int InitialTries = 3;
 
-    public GuessingGame(Dice dice)
+    public GuessingGame(IDice dice)
     {
         _dice = dice;
     }

@@ -54,21 +54,6 @@ public class PersonalDataReaderTests
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //databaseConnectionMock
 //    .SetupSequence(mock => mock.GetById(It.Is<int>(id => id > 0)))
 //            .Returns(new Person(1, "Anna", "Smith"))
