@@ -5,14 +5,22 @@ namespace Utilities;
 [TestFixture]
 public class PersonalDataReaderTests
 {
+    private PersonalDataReader _cut;
+    private Mock<IDatabaseConnection> _databaseConnectionMock;
+
+    [SetUp]
+    public void Setup()
+    {
+        _databaseConnectionMock = new Mock<IDatabaseConnection>();
+        _cut = new PersonalDataReader(_databaseConnectionMock.Object);
+    }
 
     [Test]
     public void Read_ShallProduceResultWithDataOfPersonReadFromTheDatabase()
     {
 
-        var databaseConnectionMock = new Mock<IDatabaseConnection>();
 
-        databaseConnectionMock
+        _databaseConnectionMock
             //.SetupSequence(mock => mock.GetById(It.Is<int>(id => id > 0)))
             //.Returns(new Person(1, "Ana", "Smith"))
             //.Returns(new Person(2, "Jake", "Smith"))
@@ -21,9 +29,8 @@ public class PersonalDataReaderTests
             //.Throws(new Exception("Some message"));
             .Returns(new Person(5, "John", "Smith"));
 
-        var personalDataReader = new PersonalDataReader(databaseConnectionMock.Object);
 
-        string result = personalDataReader.Read(5);
+        string result = _cut.Read(5);
         //databaseConnectionMock.Reset();
         //string result2 = personalDataReader.Read(5);
 
@@ -33,18 +40,16 @@ public class PersonalDataReaderTests
     [Test]
     public void Save_ShallCallTheWriteMethod_WithCorrectArguments()
     {
-        var databaseConnectionMock = new Mock<IDatabaseConnection>();
 
-        var personalDataReader = new PersonalDataReader(databaseConnectionMock.Object);
 
         var personToBeSaved = new Person(10, "Jane", "Miller");
-        personalDataReader.Save(personToBeSaved);
+        _cut.Save(personToBeSaved);
 
         //databaseConnectionMock.Verify(mock => mock.Write(personToBeSaved.Id, personToBeSaved), Times.Once());
 
         //databaseConnectionMock.Verify(mock => mock.Write(It.Is<int>(id => id > 0), It.IsAny<Person>()));
 
-        databaseConnectionMock.Verify(mock => mock.Write(personToBeSaved.Id, personToBeSaved));
+        _databaseConnectionMock.Verify(mock => mock.Write(personToBeSaved.Id, personToBeSaved));
     }
 }
 
