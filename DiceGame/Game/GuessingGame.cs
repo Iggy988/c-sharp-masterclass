@@ -1,54 +1,43 @@
 ﻿
-class GuessingGame
+public class GuessingGame
 {
     private readonly IDice _dice;
+    private readonly IUserCommunication _userCommunication;
     private const int InitialTries = 3;
 
-    public GuessingGame(IDice dice)
+    public GuessingGame(IDice dice, IUserCommunication userCommunication)
     {
         _dice = dice;
+        _userCommunication = userCommunication;
     }
 
     public GameResult Play()
     {
         var diceRollResult = _dice.Roll();
-        Console.WriteLine($"Dice rolled. Guess what number it shos in {InitialTries} tries.");
+        _userCommunication.ShowMessage($"Dice rolled. Guess what number it shos in {InitialTries} tries.");
 
         var triesLeft = InitialTries;
         while (triesLeft > 0)
         {
-            var guess = ConsoleReader.ReadInteger("Enter a number:");
+            var guess = _userCommunication.ReadInteger("Enter a number:");
 
             if (guess == diceRollResult)
 
             {
-
-
-
                 return GameResult.Victory;
-
             }
-
+            _userCommunication.ShowMessage("Wrong number.");
             --triesLeft;
 
         }
-
         // user je izgubio - nije pogodio broj u zadatom broju pokusaja
-
         return GameResult.Loss;
-
     }
 
-
-
-    public static void PrintResult(GameResult gameResult)
-
+    public void PrintResult(GameResult gameResult)
     {
-
         string message = gameResult == GameResult.Victory ? "You win!" : "You lose :(";
 
-        Console.WriteLine(message);
-
+        _userCommunication.ShowMessage(message);
     }
-
 }

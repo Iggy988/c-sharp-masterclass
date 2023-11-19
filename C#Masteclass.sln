@@ -119,9 +119,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "UnitTestExampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilitiesTests", "UtilitiesTests\UtilitiesTests.csproj", "{C31C8B05-3978-4F81-8AC5-672FBDEA7299}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciNumbers", "FibonacciNumbers\FibonacciNumbers.csproj", "{EF823978-08A8-4AA1-BA3B-404B6EF78D39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FibonacciNumbers", "FibonacciNumbers\FibonacciNumbers.csproj", "{EF823978-08A8-4AA1-BA3B-404B6EF78D39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciGeneratorTests", "FibonacciGeneratorTests\FibonacciGeneratorTests.csproj", "{765CDD00-F86A-4384-BE92-FF198BF188B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FibonacciGeneratorTests", "FibonacciGeneratorTests\FibonacciGeneratorTests.csproj", "{765CDD00-F86A-4384-BE92-FF198BF188B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceGameTest", "DiceGameTest\DiceGameTest.csproj", "{DE9B23DC-9E33-4BD5-A02A-61B0D07DB5E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -313,6 +315,10 @@ Global
 		{765CDD00-F86A-4384-BE92-FF198BF188B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{765CDD00-F86A-4384-BE92-FF198BF188B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{765CDD00-F86A-4384-BE92-FF198BF188B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9B23DC-9E33-4BD5-A02A-61B0D07DB5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9B23DC-9E33-4BD5-A02A-61B0D07DB5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9B23DC-9E33-4BD5-A02A-61B0D07DB5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9B23DC-9E33-4BD5-A02A-61B0D07DB5E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -364,6 +370,7 @@ Global
 		{C31C8B05-3978-4F81-8AC5-672FBDEA7299} = {4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}
 		{EF823978-08A8-4AA1-BA3B-404B6EF78D39} = {4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}
 		{765CDD00-F86A-4384-BE92-FF198BF188B5} = {4A4E0376-61CC-4C30-B6F7-E6DAA99EA9E4}
+		{DE9B23DC-9E33-4BD5-A02A-61B0D07DB5E4} = {7CAE5A9B-DBA5-46B4-B619-7F432482DD13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD36F0E-58F3-49F1-B269-39A1D42B2F8E}
